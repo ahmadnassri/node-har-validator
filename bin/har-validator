@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var chalk = require('chalk');
+var cmd = require('commander');
+var fs = require('fs');
+var pkg = require('../package.json');
+var validate = require('..');
+
+cmd
+  .version(pkg.version)
+  .usage('<file ...>')
+  .parse(process.argv);
+
+if (!cmd.args.length) {
+  cmd.help();
+}
+
+function readJson (fileName) {
+  var data = '{}';
+
+  try {
+    data = fs.readFileSync(fileName, {
+      encoding: 'utf8'
+    });
+  } catch (e) {
+    throw new Error('Couldn\'t read the file: ' + fileName);
+  }
+
+  try {
+    return JSON.parse(data);
+  } catch (e) {
+    throw new Error('Couldn\'t parse the file as JSON: ' + fileName);
+  }
+}
+
+var file = cmd.args.shift();
+var har = readJson(file);
+
+validate(har, function (err, result) {
+  if (err) {
+    console.error('%s %s failed validation: %s (%s)', chalk.red('✖'), chalk.italic(file), err[0].message, chalk.yellow.italic(err[0].field));
+    process.exit(1);
+  }
+
+  console.log('%s %s is a valid HTTP Archive %s', chalk.green('✓'), chalk.italic(file), chalk.yellow('v1.2'));
+  process.exit(0);
+});

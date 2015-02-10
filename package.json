@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "name": "har-validator",
+  "description": "HTTP Archive (HAR) validator using JSON Schema",
+  "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "bin": "./bin/har-validator",
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmadnassri/har-validator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ahmadnassri/har-validator/issues"
+  },
+  "keywords": [
+    "HAR",
+    "HTTP",
+    "Archive"
+  ],
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "should": "^4.6.1"
+  },
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "commander": "^2.6.0",
+    "is-my-json-valid": "^2.4.0"
+  }
+}
