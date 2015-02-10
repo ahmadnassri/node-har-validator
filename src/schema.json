@@ -84,7 +84,7 @@
       "required": ["method", "url", "httpVersion", "cookies", "headers", "queryString", "headersSize", "bodySize"],
       "properties": {
         "method":       { "type": "string" },
-        "url":          { "type": "string" },
+        "url":          { "type": "string", "format": "uri" },
         "httpVersion":  { "type": "string" },
         "cookies": {
           "type": "array",
