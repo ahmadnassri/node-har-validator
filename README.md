@@ -22,13 +22,13 @@ npm install --global har-validator
 
 ## Usage
 
-### CLI
+###### CLI
 
 ```shell
 har-validator ./path/to/file.har
 ```
 
-### Code
+###### Code
 
 ```js
 var validate = require('har-validator');
@@ -45,8 +45,6 @@ validate(HAR, function (err, valid) {
 ## License
 
 Licensed under [The MIT License](LICENSE).
-
-----
 
 [license-url]: https://github.com/ahmadnassri/har-validator/blob/master/LICENSE
 
