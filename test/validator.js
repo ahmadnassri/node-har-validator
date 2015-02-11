@@ -23,6 +23,15 @@ describe('HAR Spec', function () {
 
     done();
   });
+  
+  it('should fail with undefined', function (done) {
+    validate(undefined, function (err, valid) {
+      err[0].should.have.property('message');
+      err[0].message.should.equal('missing required properties');
+    });
+  
+    done();
+  });
 
   it('should fail on bad "log.version"', function (done) {
     validate(fixtures.invalid.version, function (err, valid) {
