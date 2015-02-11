@@ -18,7 +18,7 @@ describe('HAR Spec', function () {
   it('should fail with empty array', function (done) {
     validate([], function (err, valid) {
       err[0].should.have.property('message');
-      err[0].message.should.equal('missing required properties');
+      err[0].message.should.equal('is the wrong type');
     });
 
     done();
