@@ -38,14 +38,11 @@
       "optional": true,
       "required": ["startedDateTime", "id", "title", "pageTimings"],
       "properties": {
-        "startedDateTime": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "id":           { "type": "string", "unique": true },
-        "title":        { "type": "string" },
-        "pageTimings":  { "$ref": "#/definitions/pageTimings" },
-        "comment":      { "type": "string" }
+        "startedDateTime":  { "type": "string", "format": "date-time" },
+        "id":               { "type": "string", "unique": true },
+        "title":            { "type": "string" },
+        "pageTimings":      { "$ref": "#/definitions/pageTimings" },
+        "comment":          { "type": "string" }
       }
     },
 
@@ -64,16 +61,13 @@
       "required": ["startedDateTime", "time", "request", "response", "cache", "timings"],
       "properties": {
         "pageref":          { "type": "string" },
-        "startedDateTime":  {
-          "type": "string",
-          "format": "date-time"
-        },
+        "startedDateTime":  { "type": "string", "format": "date-time" },
         "time":             { "type": "number", "min": 0 },
         "request":          { "$ref": "#/definitions/request" },
         "response":         { "$ref": "#/definitions/response" },
         "cache":            { "$ref": "#/definitions/cache" },
         "timings":          { "$ref": "#/definitions/timings" },
-        "serverIPAddress":  { "type": "string" },
+        "serverIPAddress":  { "type": "string", "format": "ipv4" },
         "connection":       { "type": "string" },
         "comment":          { "type": "string" }
       }
@@ -193,9 +187,9 @@
 
     "cache": {
       "properties": {
-        "beforeRequest": { "$ref": "#/definitions/cacheEntry" },
-        "afterRequest": { "$ref": "#/definitions/cacheEntry" },
-        "comment": { "type": "string" }
+        "beforeRequest":  { "$ref": "#/definitions/cacheEntry" },
+        "afterRequest":   { "$ref": "#/definitions/cacheEntry" },
+        "comment":        { "type": "string" }
       }
     },
 
