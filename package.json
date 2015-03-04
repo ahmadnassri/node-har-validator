@@ -1,7 +1,7 @@
 {
   "version": "1.0.1",
   "name": "har-validator",
-  "description": "HTTP Archive (HAR) validator using JSON Schema",
+  "description": "Extremely fast HTTP Archive (HAR) validator using JSON Schema",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
   "license": "MIT",
   "main": "./src/index.js",
