@@ -9,9 +9,9 @@ describe('HAR Spec', function () {
   it('should fail with empty object', function (done) {
     validate({}, function (err, valid) {
       valid.should.be.false;
-      
+
       err[0].should.have.property('message');
-      err[0].message.should.equal('missing required properties');
+      err[0].message.should.equal('is required');
     });
 
     done();
@@ -20,19 +20,19 @@ describe('HAR Spec', function () {
   it('should fail with empty array', function (done) {
     validate([], function (err, valid) {
       valid.should.be.false;
-      
+
       err[0].should.have.property('message');
       err[0].message.should.equal('is the wrong type');
     });
 
     done();
   });
-  
+
   it('should fail with undefined', function (done) {
     validate(undefined, function (err, valid) {
       valid.should.be.false;
     });
-  
+
     done();
   });
 

@@ -27,11 +27,11 @@
   },
   "devDependencies": {
     "mocha": "^2.1.0",
-    "should": "^4.6.1"
+    "should": "^5.0.1"
   },
   "dependencies": {
-    "chalk": "^0.5.1",
+    "chalk": "^1.0.0",
     "commander": "^2.6.0",
-    "is-my-json-valid": "^2.4.0"
+    "is-my-json-valid": "^2.9.4"
   }
 }
