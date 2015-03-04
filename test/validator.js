@@ -10,54 +10,60 @@ describe('HAR Spec', function () {
     validate({}, function (err, valid) {
       valid.should.be.false;
 
-      err[0].should.have.property('message');
-      err[0].message.should.equal('is required');
+      err[0].should.have.property('field').and.equal('data.log');
+      err[0].should.have.property('message').and.equal('is required');
+
+      done();
     });
 
-    done();
   });
 
   it('should fail with empty array', function (done) {
     validate([], function (err, valid) {
       valid.should.be.false;
 
-      err[0].should.have.property('message');
-      err[0].message.should.equal('is the wrong type');
-    });
+      err[0].should.have.property('field').and.equal('data');
+      err[0].should.have.property('message').and.equal('is the wrong type');
 
-    done();
+      done();
+    });
   });
 
   it('should fail with undefined', function (done) {
     validate(undefined, function (err, valid) {
       valid.should.be.false;
-    });
 
-    done();
+      done();
+    });
   });
 
   it('should fail on bad "log.version"', function (done) {
     validate(fixtures.invalid.version, function (err, valid) {
-      err[0].field.should.equal('data.log.version');
-      err[0].message.should.equal('is the wrong type');
-    });
 
-    done();
+      err[0].should.have.property('field').and.equal('data.log.version');
+      err[0].should.have.property('message').and.equal('is the wrong type');
+
+      done();
+    });
   });
 
   it('should fail on bad "log.creator"', function (done) {
     validate(fixtures.invalid.creator, function (err, valid) {
-      err[0].should.have.property('message');
-      err[0].message.should.equal('referenced schema does not match');
-    });
 
-    done();
+      err[0].should.have.property('field').and.equal('data.log.creator');
+      err[0].should.have.property('message').and.equal('referenced schema does not match');
+
+      done();
+    });
   });
 
-  it('should not fail with full example', function () {
+  it('should not fail with full example', function (done) {
     validate(fixtures.valid, function (err, valid) {
-      should.not.exist(err);
       valid.should.be.true;
+
+      should.not.exist(err);
+
+      done();
     });
   });
 });
