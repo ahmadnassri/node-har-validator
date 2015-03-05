@@ -1,16 +1,10 @@
 # HAR Validator [![version][npm-version]][npm-url] [![License][npm-license]][license-url]
 
-Extremely fast HTTP Archive (HAR) validator using JSON Schema.
+Extremely fast HTTP Archive ([HAR](http://www.softwareishard.com/blog/har-12-spec/)) validator using JSON Schema.
 
 [![Build Status][travis-image]][travis-url]
 [![Downloads][npm-downloads]][npm-url]
 [![Dependencies][david-image]][david-url]
-
-
-## Table of contents
-- [Installation](#installation) 
-- [Usage](#usage) 
-- [License](#license)
 
 ## Installation
 
@@ -44,6 +38,27 @@ har-validator --schema ./path/to/request.json
 ```
 
 ### Code
+
+Include the module in your code and use directly or with any of the utility methods to validate sub-schemas:
+
+| method        | description                                                                                               |
+| ------------- | --------------------------------------------------------------------------------------------------------- |
+| `cache`       | validates a [cache](http://www.softwareishard.com/blog/har-12-spec/#cache) object                         |
+| `cacheEntry`  | validates a [beforeRequest | afterRequest](http://www.softwareishard.com/blog/har-12-spec/#cache) objects |
+| `content`     | validates a [content](http://www.softwareishard.com/blog/har-12-spec/#content) object                     |
+| `cookie`      | validates a [cookie](http://www.softwareishard.com/blog/har-12-spec/#cookie) object                       |
+| `creator`     | validates a [creator](http://www.softwareishard.com/blog/har-12-spec/#creator) object                     |
+| `entry`       | validates a [entry](http://www.softwareishard.com/blog/har-12-spec/#entry) object                         |
+| `log`         | validates a [log](http://www.softwareishard.com/blog/har-12-spec/#log) object                             |
+| `page`        | validates a [page](http://www.softwareishard.com/blog/har-12-spec/#page) object                           |
+| `pageTimings` | validates a [pageTimings](http://www.softwareishard.com/blog/har-12-spec/#pageTimings) object             |
+| `postData`    | validates a [postData](http://www.softwareishard.com/blog/har-12-spec/#postData) object                   |
+| `record`      | validates a [record](http://www.softwareishard.com/blog/har-12-spec/#headers) object                      |
+| `request`     | validates a [request](http://www.softwareishard.com/blog/har-12-spec/#request) object                     |
+| `response`    | validates a [response](http://www.softwareishard.com/blog/har-12-spec/#response) object                   |
+| `timings`     | validates a [timings](http://www.softwareishard.com/blog/har-12-spec/#timings) object                     |
+
+###### Example
 
 ```js
 var HAR = require('har.json');
