@@ -44,7 +44,7 @@ Include the module in your code and use directly or with any of the utility meth
 | method        | description                                                                                               |
 | ------------- | --------------------------------------------------------------------------------------------------------- |
 | `cache`       | validates a [cache](http://www.softwareishard.com/blog/har-12-spec/#cache) object                         |
-| `cacheEntry`  | validates a [beforeRequest | afterRequest](http://www.softwareishard.com/blog/har-12-spec/#cache) objects |
+| `cacheEntry`  | validates a ["beforeRequest" or "afterRequest"](http://www.softwareishard.com/blog/har-12-spec/#cache) objects |
 | `content`     | validates a [content](http://www.softwareishard.com/blog/har-12-spec/#content) object                     |
 | `cookie`      | validates a [cookie](http://www.softwareishard.com/blog/har-12-spec/#cookie) object                       |
 | `creator`     | validates a [creator](http://www.softwareishard.com/blog/har-12-spec/#creator) object                     |
