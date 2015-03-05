@@ -46,11 +46,11 @@ Include the module in your code and use directly or with any of the utility meth
 | `cache`       | validates a [cache](http://www.softwareishard.com/blog/har-12-spec/#cache) object                         |
 | `cacheEntry`  | validates a ["beforeRequest" or "afterRequest"](http://www.softwareishard.com/blog/har-12-spec/#cache) objects |
 | `content`     | validates a [content](http://www.softwareishard.com/blog/har-12-spec/#content) object                     |
-| `cookie`      | validates a [cookie](http://www.softwareishard.com/blog/har-12-spec/#cookie) object                       |
+| `cookie`      | validates a [cookie](http://www.softwareishard.com/blog/har-12-spec/#cookies) object                      |
 | `creator`     | validates a [creator](http://www.softwareishard.com/blog/har-12-spec/#creator) object                     |
-| `entry`       | validates a [entry](http://www.softwareishard.com/blog/har-12-spec/#entry) object                         |
+| `entry`       | validates a [entry](http://www.softwareishard.com/blog/har-12-spec/#entries) object                       |
 | `log`         | validates a [log](http://www.softwareishard.com/blog/har-12-spec/#log) object                             |
-| `page`        | validates a [page](http://www.softwareishard.com/blog/har-12-spec/#page) object                           |
+| `page`        | validates a [page](http://www.softwareishard.com/blog/har-12-spec/#pages) object                          |
 | `pageTimings` | validates a [pageTimings](http://www.softwareishard.com/blog/har-12-spec/#pageTimings) object             |
 | `postData`    | validates a [postData](http://www.softwareishard.com/blog/har-12-spec/#postData) object                   |
 | `record`      | validates a [record](http://www.softwareishard.com/blog/har-12-spec/#headers) object                      |
