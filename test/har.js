@@ -2,10 +2,10 @@
 
 var should = require('should');
 
-var fixtures = require('./fixtures');
+var fixture = require('./fixtures/har');
 var validate = require('..');
 
-describe('HAR Spec', function () {
+describe('Full HAR', function () {
   it('should fail with empty object', function (done) {
     validate({}, function (err, valid) {
       valid.should.be.false;
@@ -38,7 +38,8 @@ describe('HAR Spec', function () {
   });
 
   it('should fail on bad "log.version"', function (done) {
-    validate(fixtures.invalid.version, function (err, valid) {
+    validate(fixture.invalid.version, function (err, valid) {
+      valid.should.be.false;
 
       err[0].should.have.property('field').and.equal('data.log.version');
       err[0].should.have.property('message').and.equal('is the wrong type');
@@ -48,7 +49,8 @@ describe('HAR Spec', function () {
   });
 
   it('should fail on bad "log.creator"', function (done) {
-    validate(fixtures.invalid.creator, function (err, valid) {
+    validate(fixture.invalid.creator, function (err, valid) {
+      valid.should.be.false;
 
       err[0].should.have.property('field').and.equal('data.log.creator');
       err[0].should.have.property('message').and.equal('referenced schema does not match');
@@ -58,7 +60,7 @@ describe('HAR Spec', function () {
   });
 
   it('should not fail with full example', function (done) {
-    validate(fixtures.valid, function (err, valid) {
+    validate(fixture.valid, function (err, valid) {
       valid.should.be.true;
 
       should.not.exist(err);

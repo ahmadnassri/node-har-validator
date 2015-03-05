@@ -22,18 +22,47 @@ npm install --global har-validator
 
 ## Usage
 
-###### CLI
+### CLI
 
-```shell
-har-validator ./path/to/file.har
+```
+  Usage: har-validator <file ...>
+
+  Options:
+
+    -h, --help                         output usage information
+    -V, --version                      output the version number
+    -s, --schema [request | response]  validate sub schema
 ```
 
-###### Code
+###### Example
+
+
+```shell
+har-validator ./path/to/har.json
+
+har-validator --schema ./path/to/request.json
+```
+
+### Code
 
 ```js
+var HAR = require('har.json');
 var validate = require('har-validator');
 
 validate(HAR, function (err, valid) {
+  if (err) console.log(err)
+
+  if (valid) {
+    console.log('horray!');
+  }
+});
+```
+
+```js
+var request = require('request.json');
+var validate = require('har-validator');
+
+validate(request, function (err, valid) {
   if (err) console.log(err)
 
   if (valid) {

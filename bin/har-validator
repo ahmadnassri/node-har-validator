@@ -11,6 +11,7 @@ var validate = require('..');
 cmd
   .version(pkg.version)
   .usage('<file ...>')
+  .option('-s, --schema [request | response]', 'validate sub schema')
   .parse(process.argv);
 
 if (!cmd.args.length) {
@@ -38,7 +39,13 @@ function readJson (fileName) {
 var file = cmd.args.shift();
 var har = readJson(file);
 
-validate(har, function (err, result) {
+var runner = validate;
+
+if (cmd.schema && validate[cmd.schema]) {
+  runner = validate[cmd.schema];
+}
+
+runner(har, function (err, result) {
   if (err) {
     console.error('%s %s failed validation: %s (%s)', chalk.red('✖'), chalk.italic(file), err[0].message, chalk.yellow.italic(err[0].field));
     process.exit(1);
