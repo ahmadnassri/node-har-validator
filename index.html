@@ -57,7 +57,7 @@
         font-family: 'Open Sans', sans-serif;
       }
 
-      code, kbd, pre, samp {
+      textarea {
         font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace
       }
 
@@ -231,7 +231,17 @@
           <h2>Input</h2>
 
           <form class="form">
-            <textarea class="form-control" rows="20"></textarea>
+            <textarea class="form-control" rows="20">{
+  "log": {
+    "version": 1.2,
+    "creator": {
+      "name": "",
+      "version": ""
+    },
+    "pages": [],
+    "entries": {}
+  }
+}</textarea>
 
             <button class="btn btn-primary btn-validate">Validate</button>
           </form>
@@ -280,7 +290,8 @@
 
     <script type="text/javascript">
       $(function () {
-        var template = '<li><i class="fa fa-times text-danger"></i> <span class="text-warning">F</span>: <span class="text-info">V</span> M</li>';
+        var error = '<li><i class="fa fa-times text-danger"></i> <span class="text-warning">F</span>: <span class="text-info">V</span> M</li>';
+        var success = '<li><i class="fa fa-5x fa-smile-o text-success"></i></li>';
 
         $('form').on('submit', function (e) {
           e.preventDefault()
@@ -294,17 +305,23 @@
 
           try {
             harValidator.log(JSON.parse(text))
+
+            $('#results').append(success)
           } catch (e) {
+            console.log(e)
+
             if (e.name === 'ValidationError') {
               e.errors.map(function (err) {
-                $('#results').append(template
+                $('#results').append(error
                   .replace('F', err.field)
                   .replace('V', err.value)
                   .replace('M', err.message)
                 )
               })
             } else {
-              $('#results').append(template
+              console.log(e)
+
+              $('#results').append(error
                 .replace('F', 'JSON Parse Error')
                 .replace('V', '')
                 .replace('M', e.message)
