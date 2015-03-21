@@ -14,7 +14,7 @@ var validate = Promise.promisifyAll(require('..'))
 cmd
   .version(pkg.version)
   .usage('[options] <files ...>')
-  .option('-s, --schema [request | response]', 'validate sub schema')
+  .option('-s, --schema [name]', 'validate schema name (log, request, response, etc ...)')
   .parse(process.argv)
 
 if (!cmd.args.length) {

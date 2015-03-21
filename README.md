@@ -21,70 +21,283 @@ npm install --save har-validator
 ## Usage
 
 ```
-Usage: har-validator <file ...>
 
-Options:
+  Usage: har-validator [options] <files ...>
 
-  -h, --help                         output usage information
-  -V, --version                      output the version number
-  -s, --schema [request | response]  validate sub schema
+  Options:
+
+    -h, --help           output usage information
+    -V, --version        output the version number
+    -s, --schema [name]  validate schema name (log, request, response, etc ...)
+
 ```
 
 ###### Example
-
 
 ```shell
-har-validator ./path/to/har.json
+har-validator har.json
 
-har-validator --schema ./path/to/request.json
+har-validator --schema request request.json
 ```
 
-### Code
+## API
 
-Include the module in your code and use directly or with any of the utility methods to validate sub-schemas:
+### Validate(data [, callback])
 
-| method        | description                                                                                               |
-| ------------- | --------------------------------------------------------------------------------------------------------- |
-| `cache`       | validates a [cache](http://www.softwareishard.com/blog/har-12-spec/#cache) object                         |
-| `cacheEntry`  | validates a ["beforeRequest" or "afterRequest"](http://www.softwareishard.com/blog/har-12-spec/#cache) objects |
-| `content`     | validates a [content](http://www.softwareishard.com/blog/har-12-spec/#content) object                     |
-| `cookie`      | validates a [cookie](http://www.softwareishard.com/blog/har-12-spec/#cookies) object                      |
-| `creator`     | validates a [creator](http://www.softwareishard.com/blog/har-12-spec/#creator) object                     |
-| `entry`       | validates a [entry](http://www.softwareishard.com/blog/har-12-spec/#entries) object                       |
-| `log`         | validates a [log](http://www.softwareishard.com/blog/har-12-spec/#log) object                             |
-| `page`        | validates a [page](http://www.softwareishard.com/blog/har-12-spec/#pages) object                          |
-| `pageTimings` | validates a [pageTimings](http://www.softwareishard.com/blog/har-12-spec/#pageTimings) object             |
-| `postData`    | validates a [postData](http://www.softwareishard.com/blog/har-12-spec/#postData) object                   |
-| `record`      | validates a [record](http://www.softwareishard.com/blog/har-12-spec/#headers) object                      |
-| `request`     | validates a [request](http://www.softwareishard.com/blog/har-12-spec/#request) object                     |
-| `response`    | validates a [response](http://www.softwareishard.com/blog/har-12-spec/#response) object                   |
-| `timings`     | validates a [timings](http://www.softwareishard.com/blog/har-12-spec/#timings) object                     |
+Returns `true` or `false`.
 
-###### Example
+- **data**: `Object` *(Required)*
+  a [log](http://www.softwareishard.com/blog/har-12-spec/#log) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
 
 ```js
-var HAR = require('har.json');
+var HAR = require('./har.json');
 var validate = require('har-validator');
 
-validate(HAR, function (err, valid) {
-  if (err) console.log(err)
+validate(HAR, function (e, valid) {
+  if (e) console.log(e.errors)
 
-  if (valid) {
-    console.log('horray!');
-  }
+  if (valid) console.log('horray!');
 });
 ```
 
+### Validate.cache(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [cache](http://www.softwareishard.com/blog/har-12-spec/#cache) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
 ```js
-var request = require('request.json');
 var validate = require('har-validator');
 
-validate(request, function (err, valid) {
-  if (err) console.log(err)
+validate.cache(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
 
-  if (valid) {
-    console.log('horray!');
-  }
+### Validate.cacheEntry(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a ["beforeRequest" or "afterRequest"](http://www.softwareishard.com/blog/har-12-spec/#cache) objects
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.cacheEntry(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
+
+### Validate.content(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [content](http://www.softwareishard.com/blog/har-12-spec/#content) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.content(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
+
+### Validate.cookie(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [cookie](http://www.softwareishard.com/blog/har-12-spec/#cookies) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.cookie(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
+
+### Validate.creator(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [creator](http://www.softwareishard.com/blog/har-12-spec/#creator) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.creator(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
+
+### Validate.entry(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [entry](http://www.softwareishard.com/blog/har-12-spec/#entries) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.entry(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
+
+### Validate.log(data [, callback])
+
+alias of [`Validate(data [, callback])`](#validate-data-callback-)
+
+### Validate.page(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [page](http://www.softwareishard.com/blog/har-12-spec/#pages) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.page(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
+
+### Validate.pageTimings(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [pageTimings](http://www.softwareishard.com/blog/har-12-spec/#pageTimings) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.pageTimings(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
+
+### Validate.postData(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [postData](http://www.softwareishard.com/blog/har-12-spec/#postData) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.postData(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
+
+### Validate.record(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [record](http://www.softwareishard.com/blog/har-12-spec/#headers) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.record(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
+
+### Validate.request(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [request](http://www.softwareishard.com/blog/har-12-spec/#request) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.request(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
+
+### Validate.response(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [response](http://www.softwareishard.com/blog/har-12-spec/#response) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.cacheEntry(data, function (e, valid) {
+  if (e) console.log(e.errors)
+});
+```
+
+### Validate.timings(data [, callback])
+
+Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [timings](http://www.softwareishard.com/blog/har-12-spec/#timings) object
+
+- **callback**: `Function`
+  gets two arguments (err, valid)
+
+```js
+var validate = require('har-validator');
+
+validate.timings(data, function (e, valid) {
+  if (e) console.log(e.errors)
 });
 ```
 
