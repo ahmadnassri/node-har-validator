@@ -8,7 +8,7 @@ var validate = require('..')
 
 describe('Full HAR', function () {
   it('should fail with empty object', function (done) {
-    validate.log({}, function (e, valid) {
+    validate({}, function (e, valid) {
       valid.should.be.false
 
       e.errors[0].should.have.property('field').and.equal('data.log')
