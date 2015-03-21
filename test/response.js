@@ -2,9 +2,8 @@
 
 'use strict'
 
-var should = require('should')
 var fixtures = require('./fixtures')
-
+var should = require('should')
 var validate = require('..')
 
 describe('Response Only', function () {
