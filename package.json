@@ -3,35 +3,48 @@
   "name": "har-validator",
   "description": "Extremely fast HTTP Archive (HAR) validator using JSON Schema",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
+  "homepage": "https://github.com/ahmadnassri/har-validator",
   "license": "MIT",
   "main": "./src/index.js",
   "bin": "./bin/har-validator",
+  "keywords": [
+    "har",
+    "http",
+    "archive",
+    "validate",
+    "validator"
+  ],
   "engines": {
-    "node": "0.10.x",
-    "npm": "1.4.x"
+    "node": ">=0.10"
   },
+  "files": [
+    "bin",
+    "src"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmadnassri/har-validator.git"
+    "url": "https://github.com/ahmadnassri/har-validator"
   },
   "bugs": {
     "url": "https://github.com/ahmadnassri/har-validator/issues"
   },
-  "keywords": [
-    "HAR",
-    "HTTP",
-    "Archive"
-  ],
   "scripts": {
-    "test": "mocha -R spec"
+    "test": "standard && mocha --reporter spec",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "codeclimate": "codeclimate < coverage/lcov.info"
   },
   "devDependencies": {
-    "mocha": "^2.1.0",
-    "should": "^5.0.1"
+    "codeclimate-test-reporter": "0.0.4",
+    "istanbul": "^0.3.8",
+    "mocha": "^2.2.1",
+    "should": "^5.2.0",
+    "standard": "^3.2.0"
   },
   "dependencies": {
     "chalk": "^1.0.0",
-    "commander": "^2.6.0",
-    "is-my-json-valid": "^2.9.4"
+    "commander": "^2.7.1",
+    "debug": "^2.1.3",
+    "is-my-json-valid": "^2.10.0",
+    "require-directory": "^2.1.0"
   }
 }

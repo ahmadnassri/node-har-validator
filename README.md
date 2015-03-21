@@ -4,28 +4,30 @@ Extremely fast HTTP Archive ([HAR](http://www.softwareishard.com/blog/har-12-spe
 
 [![Build Status][travis-image]][travis-url]
 [![Downloads][npm-downloads]][npm-url]
+[![Code Climate][codeclimate-quality]][codeclimate-url]
+[![Coverage Status][codeclimate-coverage]][codeclimate-url]
 [![Dependencies][david-image]][david-url]
 
-## Installation
-
-install from source or through [npm](https://www.npmjs.com/):
+## Install
 
 ```shell
+# to use in cli
 npm install --global har-validator
+
+# to use as a module
+npm install --save har-validator
 ```
 
 ## Usage
 
-### CLI
-
 ```
-  Usage: har-validator <file ...>
+Usage: har-validator <file ...>
 
-  Options:
+Options:
 
-    -h, --help                         output usage information
-    -V, --version                      output the version number
-    -s, --schema [request | response]  validate sub schema
+  -h, --help                         output usage information
+  -V, --version                      output the version number
+  -s, --schema [request | response]  validate sub schema
 ```
 
 ###### Example
@@ -88,7 +90,7 @@ validate(request, function (err, valid) {
 
 ## License
 
-Licensed under [The MIT License](LICENSE).
+[MIT](LICENSE) &copy; [Ahmad Nassri](https://www.ahmadnassri.com)
 
 [license-url]: https://github.com/ahmadnassri/har-validator/blob/master/LICENSE
 
@@ -99,6 +101,10 @@ Licensed under [The MIT License](LICENSE).
 [npm-license]: https://img.shields.io/npm/l/har-validator.svg?style=flat-square
 [npm-version]: https://img.shields.io/npm/v/har-validator.svg?style=flat-square
 [npm-downloads]: https://img.shields.io/npm/dm/har-validator.svg?style=flat-square
+
+[codeclimate-url]: https://codeclimate.com/github/Ahmadnassri/har-validator
+[codeclimate-quality]: https://img.shields.io/codeclimate/github/Ahmadnassri/har-validator.svg?style=flat-square
+[codeclimate-coverage]: https://img.shields.io/codeclimate/coverage/github/Ahmadnassri/har-validator.svg?style=flat-square
 
 [david-url]: https://david-dm.org/ahmadnassri/har-validator
 [david-image]: https://img.shields.io/david/ahmadnassri/har-validator.svg?style=flat-square

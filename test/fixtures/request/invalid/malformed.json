@@ -1,0 +1,14 @@
+{
+  "method": "GET",
+  "url": "http://httpconsole.com/",
+  "httpVersion": "HTTP/1.1",
+  "headers": [
+    {
+      "foo": "bar"
+    }
+  ],
+  "queryString": [],
+  "cookies": [],
+  "headersSize": 0,
+  "bodySize": 0
+}

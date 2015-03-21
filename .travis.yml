@@ -1,8 +1,13 @@
 language: node_js
+
 node_js:
+ - iojs
  - 0.10
  - 0.11
  - 0.12
- - iojs
 
 script: npm test
+
+after_script:
+  - npm run coverage
+  - npm run codeclimate
