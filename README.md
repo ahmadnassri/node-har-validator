@@ -102,9 +102,9 @@ validate(request, function (err, valid) {
 [npm-version]: https://img.shields.io/npm/v/har-validator.svg?style=flat-square
 [npm-downloads]: https://img.shields.io/npm/dm/har-validator.svg?style=flat-square
 
-[codeclimate-url]: https://codeclimate.com/github/Ahmadnassri/har-validator
-[codeclimate-quality]: https://img.shields.io/codeclimate/github/Ahmadnassri/har-validator.svg?style=flat-square
-[codeclimate-coverage]: https://img.shields.io/codeclimate/coverage/github/Ahmadnassri/har-validator.svg?style=flat-square
+[codeclimate-url]: https://codeclimate.com/github/ahmadnassri/har-validator
+[codeclimate-quality]: https://img.shields.io/codeclimate/github/ahmadnassri/har-validator.svg?style=flat-square
+[codeclimate-coverage]: https://img.shields.io/codeclimate/coverage/github/ahmadnassri/har-validator.svg?style=flat-square
 
 [david-url]: https://david-dm.org/ahmadnassri/har-validator
 [david-image]: https://img.shields.io/david/ahmadnassri/har-validator.svg?style=flat-square
