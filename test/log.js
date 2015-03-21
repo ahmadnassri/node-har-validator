@@ -7,12 +7,12 @@ var fixtures = require('./fixtures')
 
 var validate = require('..')
 
-describe('Request Only', function () {
+describe('Full HAR', function () {
   it('should fail with empty object', function (done) {
-    validate.request({}, function (e, valid) {
+    validate.log({}, function (e, valid) {
       valid.should.be.false
 
-      e.errors[0].should.have.property('field').and.equal('data.method')
+      e.errors[0].should.have.property('field').and.equal('data.log')
       e.errors[0].should.have.property('message').and.equal('is required')
 
       done()
@@ -21,7 +21,7 @@ describe('Request Only', function () {
   })
 
   it('should fail with empty array', function (done) {
-    validate.request([], function (e, valid) {
+    validate.log([], function (e, valid) {
       valid.should.be.false
 
       e.errors[0].should.have.property('field').and.equal('data')
@@ -32,7 +32,7 @@ describe('Request Only', function () {
   })
 
   it('should fail with undefined', function (done) {
-    validate.request(undefined, function (e, valid) {
+    validate.log(undefined, function (e, valid) {
       valid.should.be.false
 
       should.not.exist(e)
@@ -41,33 +41,22 @@ describe('Request Only', function () {
     })
   })
 
-  it('should fail on bad "url"', function (done) {
-    validate.request(fixtures.request.invalid.url, function (e, valid) {
+  it('should fail on bad "log.version"', function (done) {
+    validate.log(fixtures.log.invalid.version, function (e, valid) {
       valid.should.be.false
 
-      e.errors[0].should.have.property('field').and.equal('data.url')
-      e.errors[0].should.have.property('message').and.equal('must be uri format')
-
-      done()
-    })
-  })
-
-  it('should fail on bad "headers"', function (done) {
-    validate.request(fixtures.request.invalid.headers, function (e, valid) {
-      valid.should.be.false
-
-      e.errors[0].should.have.property('field').and.equal('data.headers')
+      e.errors[0].should.have.property('field').and.equal('data.log.version')
       e.errors[0].should.have.property('message').and.equal('is the wrong type')
 
       done()
     })
   })
 
-  it('should fail on malformed "headers"', function (done) {
-    validate.request(fixtures.request.invalid.malformed, function (e, valid) {
+  it('should fail on bad "log.creator"', function (done) {
+    validate.log(fixtures.log.invalid.creator, function (e, valid) {
       valid.should.be.false
 
-      e.errors[0].should.have.property('field').and.equal('data.headers.*')
+      e.errors[0].should.have.property('field').and.equal('data.log.creator')
       e.errors[0].should.have.property('message').and.equal('referenced schema does not match')
 
       done()
@@ -75,7 +64,7 @@ describe('Request Only', function () {
   })
 
   it('should not fail with full example', function (done) {
-    validate.request(fixtures.request.valid, function (e, valid) {
+    validate.log(fixtures.log.valid, function (e, valid) {
       valid.should.be.true
 
       should.not.exist(e)

@@ -3,6 +3,13 @@
 var validator = require('is-my-json-valid')
 var schemas = require('./schemas.json')
 
+function ValidationError (errors) {
+  this.name = 'ValidationError'
+  this.errors = errors
+}
+
+ValidationError.prototype = Error.prototype
+
 var runner = function (schema, data, cb) {
   var validate = validator(schema, {
     schemas: schemas
@@ -16,15 +23,15 @@ var runner = function (schema, data, cb) {
   }
 
   // callback?
-  if (cb) {
-    return cb(validate.errors, valid)
+  if (!cb) {
+    if (validate.errors) {
+      throw new ValidationError(validate.errors)
+    }
+  } else {
+    return cb(validate.errors ? new ValidationError(validate.errors) : null, valid)
   }
 
   return valid
-}
-
-module.exports = function (data, cb) {
-  return runner(schemas.log, data, cb)
 }
 
 Object.keys(schemas).map(function (name) {

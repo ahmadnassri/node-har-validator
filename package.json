@@ -41,6 +41,8 @@
     "standard": "^3.2.0"
   },
   "dependencies": {
+    "async": "^0.9.0",
+    "bluebird": "^2.9.14",
     "chalk": "^1.0.0",
     "commander": "^2.7.1",
     "debug": "^2.1.3",
