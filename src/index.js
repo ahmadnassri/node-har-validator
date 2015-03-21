@@ -35,7 +35,7 @@ var runner = function (schema, data, cb) {
 }
 
 module.exports = function (data, cb) {
-  return runner(schemas['log'], data, cb)
+  return runner(schemas.log, data, cb)
 }
 
 Object.keys(schemas).map(function (name) {
