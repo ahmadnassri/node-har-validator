@@ -28,7 +28,7 @@ if (!cmd.schema) {
 cmd.args.map(function (fileName) {
   var file = chalk.yellow.italic(path.basename(fileName))
 
-  return fs.readFileAsync(fileName)
+  fs.readFileAsync(fileName)
     .then(JSON.parse)
     .then(validate[cmd.schema + 'Async'])
     .then(function () {
