@@ -5,24 +5,28 @@
 var fixtures = require('./fixtures')
 var validate = require('..')
 
-require('should')
+var should = require('should')
 
 describe('Validator', function () {
   it('should throw error', function (done) {
-    /*eslint-disable no-wrap-func */
-    (function () {
-      validate.log({})
-    }).should.throw(Error)
+    validate.log({}).should.be.false
 
-    done()
+    validate.log({}, function (err, valid) {
+      valid.should.be.false
+      err.should.be.Error
+
+      done()
+    })
   })
 
   it('should not throw error', function (done) {
-    /*eslint-disable no-wrap-func */
-    (function () {
-      validate.log(fixtures.log.valid)
-    }).should.not.throw(Error)
+    validate.log(fixtures.log.valid).should.be.true
 
-    done()
+    validate.log(fixtures.log.valid, function (err, valid) {
+      valid.should.be.true
+      should.not.exist(err)
+
+      done()
+    })
   })
 })
