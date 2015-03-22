@@ -12,6 +12,8 @@ ValidationError.prototype = Error.prototype
 
 var runner = function (schema, data, cb) {
   var validate = validator(schema, {
+    greedy: true,
+    verbose: true,
     schemas: schemas
   })
 

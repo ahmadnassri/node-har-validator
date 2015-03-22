@@ -39,7 +39,7 @@ cmd.args.map(function (fileName) {
     })
     .catch(function (e) {
       e.errors.map(function (err) {
-        console.error('%s [%s] failed validation: (%s) %s', chalk.red('✖'), file, chalk.cyan.italic(err.field), chalk.red(err.message))
+        console.error('%s [%s] failed validation: (%s: %s) %s', chalk.red('✖'), file, chalk.cyan.italic(err.field), chalk.magenta.italic(err.value), chalk.red(err.message))
       })
     })
 })
