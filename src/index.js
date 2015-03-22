@@ -26,9 +26,7 @@ var runner = function (schema, data, cb) {
 
   // callback?
   if (!cb) {
-    if (validate.errors) {
-      return valid
-    }
+    return validate.errors ? false : true
   } else {
     return cb(validate.errors ? new ValidationError(validate.errors) : null, valid)
   }
