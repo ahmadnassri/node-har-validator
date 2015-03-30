@@ -9,9 +9,9 @@ var should = require('should')
 
 describe('Validator', function () {
   it('should throw error', function (done) {
-    validate.log({}).should.be.false
+    validate({}).should.be.false
 
-    validate.log({}, function (err, valid) {
+    validate({}, function (err, valid) {
       valid.should.be.false
       err.should.be.Error
 
@@ -20,9 +20,9 @@ describe('Validator', function () {
   })
 
   it('should not throw error', function (done) {
-    validate.log(fixtures.log.valid).should.be.true
+    validate(fixtures.har.valid).should.be.true
 
-    validate.log(fixtures.log.valid, function (err, valid) {
+    validate(fixtures.har.valid, function (err, valid) {
       valid.should.be.true
       should.not.exist(err)
 

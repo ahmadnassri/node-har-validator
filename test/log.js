@@ -20,7 +20,7 @@ describe('Full HAR', function () {
   })
 
   it('should fail with empty array', function (done) {
-    validate.log([], function (e, valid) {
+    validate.har([], function (e, valid) {
       valid.should.be.false
 
       e.errors[0].should.have.property('field').and.equal('data')
@@ -31,7 +31,7 @@ describe('Full HAR', function () {
   })
 
   it('should fail with undefined', function (done) {
-    validate.log(undefined, function (e, valid) {
+    validate.har(undefined, function (e, valid) {
       valid.should.be.false
 
       should.not.exist(e)
@@ -41,7 +41,7 @@ describe('Full HAR', function () {
   })
 
   it('should fail on bad "log.version"', function (done) {
-    validate.log(fixtures.log.invalid.version, function (e, valid) {
+    validate.har(fixtures.har.invalid.version, function (e, valid) {
       valid.should.be.false
 
       e.errors[0].should.have.property('field').and.equal('data.log.version')
@@ -52,18 +52,18 @@ describe('Full HAR', function () {
   })
 
   it('should fail on bad "log.creator"', function (done) {
-    validate.log(fixtures.log.invalid.creator, function (e, valid) {
+    validate.har(fixtures.har.invalid.creator, function (e, valid) {
       valid.should.be.false
 
-      e.errors[0].should.have.property('field').and.equal('data.log.creator')
-      e.errors[0].should.have.property('message').and.equal('referenced schema does not match')
+      e.errors[0].should.have.property('field').and.equal('data.log.creator.version')
+      e.errors[0].should.have.property('message').and.equal('is required')
 
       done()
     })
   })
 
   it('should not fail with full example', function (done) {
-    validate.log(fixtures.log.valid, function (e, valid) {
+    validate.har(fixtures.har.valid, function (e, valid) {
       valid.should.be.true
 
       should.not.exist(e)
