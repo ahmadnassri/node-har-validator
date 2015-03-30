@@ -65,44 +65,9 @@
         margin-bottom: 25px;
       }
 
-      .navbar-default {
-        border-color: #E6E9EB;
-        background-color: #FFFFFF;
-        margin: 0;
-      }
-
-      .navbar-default .navbar-brand a {
-        color: #273d4c;
-        font-size: 13px;
-        font-weight: 600;
-      }
-
-      .navbar-default .navbar-brand a img {
-        vertical-align: text-top;
-        margin-right: 3px;
-      }
-
-      .navbar-default .navbar-brand a:hover {
-        text-decoration: none;
-      }
-
-      .navbar-default .navbar-brand a strong {
-        font-weight: 700;
-      }
-
-      .navbar-default .navbar-brand .text-muted,
-      .navbar-default .navbar-brand .text-muted a {
-        font-size: 13px;
-        color: #A1ABB2;
-        font-weight: 400;
-      }
-
-      .navbar-default .navbar-text {
-        margin-bottom: 0px;
-      }
-
       header {
         padding: 40px 0;
+        margin-bottom: 20px;
 
         color: #FFFFFF;
 
@@ -131,93 +96,42 @@
         color: white;
       }
 
-      h2 {
-        color: #262D33;
-        font-weight: 400;
-        font-size: 27px;
-        margin: 0 0 40px 0;
+      .panel .table {
+        display: none;
       }
 
-      .form-container,
-      .preview-container {
-        padding-top: 80px;
+      .table {
+        table-layout: fixed;
+        white-space: nowrap;
       }
 
-      .form-container {
-        height: 100%;
-        border-right: 1px solid #E1E1E1;
+      .table td {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
-      hr {
-        margin: 0;
-        border-color: #E1E1E1;
+      .panel.error .table {
+        display: table
       }
 
-      .btn-validate {
-        width: 100%;
-        font-size: 13px;
-        font-weight: 700;
-        margin: 30px 0 80px 0;
-        padding: 10px 15px;
+      .form-control-feedback {
+        right: 15px;
+        top: initial;
+        bottom: 0;
       }
 
-      footer .navbar-default .navbar-nav a {
-        color: #273d4c;
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
+      .input-container.has-success textarea {
+        background-color: rgba(223, 240, 216, 0.25);
       }
 
-      footer .navbar-default .navbar-nav a:hover {
-        text-decoration: underline;
-      }
-
-      .selectize-control.multi .selectize-input > div {
-        background-color: #999;
-        padding: .2em .6em .3em;
-        color: #eee;
-        border-radius: .25em;
-      }
-
-      .selectize-control.multi .selectize-input > div > span {
-        color: #fff;
-      }
-
-      .selectize-control.plugin-remove_button [data-value] .remove {
-        padding: 3px 0 0;
-      }
-
-      @media (min-width: 767px) {
-        .form-container {
-          padding-right: 60px;
-        }
-
-        .preview-container {
-          padding-left: 60px;
-        }
+      .input-container.has-error textarea {
+        background-color: rgba(242, 222, 222, 0.25);
       }
     </style>
   </head>
 
-  <body role="document">
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <div class="navbar-brand">
-            <a href="/">
-              <strong>HAR</strong> Validator
-            </a>
-          </div>
-        </div>
-
-        <div class="navbar-text navbar-right hidden-xs">
-          <a class="twitter-share-button" href="https://twitter.com/share" data-url="https://ahmadnassri.github.io/har-validator" data-via="AhmadNassri" data-hashtags="HAR, Validator, HTTP, Archive" data-dnt="true">Tweet</a>
-          <a class="github-button" href="https://github.com/ahmadnassri/har-validator" data-icon="octicon-star", data-count-href="/ahmadnassri/har-validator/stargazers" data-count-api="/repos/ahmadnassri/har-validator#stargazers_count">Star</a>
-        </div>
-      </div>
-    </nav>
-
+  <body>
     <header>
       <div class="container">
         <h1>HAR Validator</h1>
@@ -226,53 +140,88 @@
     </header>
 
     <div class="container">
-      <div class="row">
-        <div class="col-sm-6 form-container">
-          <h2>Input</h2>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group">
+                <span class="input-group-addon">Load Example</span>
+                <select name="example" class="form-control">
+                  <option value="">Select ...</option>
+                  <option value="har">Full HAR Object</option>
+                  <option value="log">har.log </option>
+                  <option value="entry">har.log.entry</option>
+                  <option value="request">har.log.entries.*.request</option>
+                  <option value="response">har.log.entries.*.response</option>
+                </select>
+              </div>
+            </div>
 
-          <form class="form">
-            <textarea class="form-control" rows="20">{
-  "log": {
-    "version": 1.2,
-    "creator": {
-      "name": "",
-      "version": ""
-    },
-    "pages": [],
-    "entries": {}
-  }
-}</textarea>
-
-            <button class="btn btn-primary btn-validate">Validate</button>
-          </form>
+            <div class="col-sm-6">
+              <div class="input-group">
+                <span class="input-group-addon">Load from Disk</span>
+                <input class="form-control" type="file"/>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="col-sm-6 preview-container">
-          <h2>Result</h2>
+        <div class="panel-body">
+          <div class="input-container form-group  has-feedback">
+            <textarea class="form-control" rows="20"></textarea>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+        </div>
 
-          <ul class="list-unstyled" id="results"></ul>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th width="20%" class="text-danger">Field</th>
+              <th width="20%" class="text-danger">Error</th>
+              <th width="50%" class="text-danger">Value</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          </tbody>
+        </table>
+
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group">
+                <span class="input-group-addon">What to validate</span>
+                <select name="schema" class="form-control">
+                  <option value="har">Full HAR Object</option>
+                  <option value="log">har.log </option>
+                  <option value="entry">har.log.entry</option>
+                  <option value="request">har.log.entries.*.request</option>
+                  <option value="response">har.log.entries.*.response</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <button class="btn btn-primary btn-block btn-validate">Validate</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <hr/>
-
     <footer>
       <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container">
-          <div class="navbar-header">
-            <div class="navbar-brand">
-              <a href="/">
-                <strong>HAR</strong> Validator
-              </a>
-            </div>
+          <div class="navbar-text">
+            <a class="github-button" href="https://github.com/ahmadnassri/har-validator" data-icon="octicon-eye" data-count-href="/ahmadnassri/har-validator/watchers" data-count-api="/repos/ahmadnassri/har-validator#subscribers_count">Watch</a>
+            <a class="github-button" href="https://github.com/ahmadnassri/har-validator" data-icon="octicon-star" data-count-href="/ahmadnassri/har-validator/stargazers" data-count-api="/repos/ahmadnassri/har-validator#stargazers_count">Star</a>
+            <a class="github-button" href="https://github.com/ahmadnassri/har-validator/issues" data-icon="octicon-issue-opened" data-count-api="/repos/ahmadnassri/har-validator#open_issues_count">Issue</a>
+            <a class="twitter-share-button" href="https://twitter.com/share" data-url="https://ahmadnassri.github.io/har-validator" data-via="AhmadNassri" data-hashtags="HAR, Validator, HTTP, Archive" data-dnt="true">Tweet</a>
           </div>
 
-          <ul class="nav navbar-nav navbar-right hidden-xs">
-            <li><a href="https://github.com/ahmadnassri/har-validator/">Open Source</a></li>
-            <li><a href="https://github.com/ahmadnassri/har-validator/issues">Issues</a></li>
-            <li><a href="https://github.com/ahmadnassri/har-validator/stargazers">Star</a></li>
-          </ul>
+          <div class="nav navbar-right navbar-text hidden-xs">
+            <a class="github-button" href="https://github.com/ahmadnassri" data-count-href="/ahmadnassri/followers" data-count-api="/users/ahmadnassri#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @ahmadnassri on GitHub">Follow @ahmadnassri</a>
+          </div>
         </div>
       </nav>
     </footer>
@@ -283,55 +232,29 @@
 
     <script type="text/javascript" src="https://wzrd.in/standalone/har-validator@latest"></script>
 
+
+    <script type="text/javascript" src="sample.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+    <script type="text/javascript">
+      function setupGoogleAnalytics () {
+        window.GoogleAnalyticsObject = 'ga'
+
+        window.ga = window.ga || function () {
+          window.ga.q.push(arguments)
+        }
+
+        window.ga.q = window.ga.q || [
+          ['create', 'UA-598217-34', 'auto'],
+          ['require', 'displayfeatures'],
+          ['require', 'linkid', 'linkid.js'],
+          ['send', 'pageview']
+        ]
+
+        window.ga.l = new Date().getTime()
+      }
+    </script>
+
     <script type="text/javascript" src="https://www.google-analytics.com/analytics.js" async defer></script>
-
-    <script type="text/javascript">
-    </script>
-
-    <script type="text/javascript">
-      $(function () {
-        var error = '<li><i class="fa fa-times text-danger"></i> <span class="text-warning">F</span>: M <span class="text-info">V</span></li>';
-        var success = '<li><i class="fa fa-5x fa-smile-o text-success"></i></li>';
-
-        $('form').on('submit', function (e) {
-          e.preventDefault()
-        })
-
-        $('.btn-validate').on('click', function (e) {
-          var data
-          var text = $('textarea').val();
-
-          $('#results').empty();
-
-          try {
-            data = JSON.parse(text)
-          } catch (e) {
-            console.log(e)
-
-            $('#results').append(error
-              .replace('F', 'JSON Parse Error')
-              .replace('M', e.message)
-              .replace('V', '')
-            )
-          }
-
-          harValidator.har(data, function (err, valid) {
-            if (valid) {
-              $('#results').append(success)
-            } else {
-              console.log(err)
-
-              err.errors.map(function (err) {
-                $('#results').append(error
-                  .replace('F', err.field)
-                  .replace('M', err.message)
-                  .replace('V', JSON.stringify(err.value))
-                )
-              })
-            }
-          })
-        })
-      })
-    </script>
   </body>
 </html>
