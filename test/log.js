@@ -62,6 +62,17 @@ describe('Full HAR', function () {
     })
   })
 
+  it('should fail on bad "log.pages.*.startedDateTime"', function (done) {
+    validate.har(fixtures.har.invalid.date, function (e, valid) {
+      valid.should.be.false
+
+      e.errors[0].should.have.property('field').and.equal('data.log.pages.*.startedDateTime')
+      e.errors[0].should.have.property('message').and.equal('must be date-time format')
+
+      done()
+    })
+  })
+
   it('should not fail with full example', function (done) {
     validate.har(fixtures.har.valid, function (e, valid) {
       valid.should.be.true
