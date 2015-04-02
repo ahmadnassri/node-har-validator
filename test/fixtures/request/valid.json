@@ -1,6 +1,6 @@
 {
   "method": "GET",
-  "url": "http://httpconsole.com/",
+  "url": "http://mockbin.com/",
   "httpVersion": "HTTP/1.1",
   "headers": [
     {
@@ -13,7 +13,7 @@
     },
     {
       "name": "Host",
-      "value": "httpconsole.com"
+      "value": "mockbin.com"
     },
     {
       "name": "Connection",

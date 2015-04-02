@@ -9,7 +9,7 @@
       {
         "startedDateTime": "2015-02-10T07:33:17.146Z",
         "id": "page_1",
-        "title": "http://httpconsole.com/",
+        "title": "http://mockbin.com/",
         "pageTimings": {
           "onContentLoad": 627.4099349975586,
           "onLoad": 1266.5300369262695
@@ -22,7 +22,7 @@
         "time": 181.59985542297363,
         "request": {
           "method": "GET",
-          "url": "http://httpconsole.com/",
+          "url": "http://mockbin.com/",
           "httpVersion": "HTTP/1.1",
           "headers": [
             {
@@ -35,7 +35,7 @@
             },
             {
               "name": "Host",
-              "value": "httpconsole.com"
+              "value": "mockbin.com"
             },
             {
               "name": "Connection",
@@ -74,7 +74,7 @@
             },
             {
               "name": "X-Powered-By",
-              "value": "httpconsole.com"
+              "value": "mockbin.com"
             },
             {
               "name": "Transfer-Encoding",
