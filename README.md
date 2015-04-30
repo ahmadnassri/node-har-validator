@@ -176,7 +176,7 @@ validate.creator(data, function (e, valid) {
 Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [entry](http://www.softwareishard.com/blog/har-12-spec/#entries) object
+  an [entry](http://www.softwareishard.com/blog/har-12-spec/#entries) object
 
 - **callback**: `Function`
   gets two arguments (err, valid)
