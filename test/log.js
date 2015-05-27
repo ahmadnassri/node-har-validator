@@ -66,7 +66,7 @@ describe('Full HAR', function () {
     validate.har(fixtures.har.invalid.date, function (e, valid) {
       valid.should.be.false
 
-      e.errors[0].should.have.property('field').and.equal('data.log.pages.*.startedDateTime')
+      e.errors[0].should.have.property('field').and.equal('data.log.pages.0.startedDateTime')
       e.errors[0].should.have.property('message').and.equal('must be date-time format')
 
       done()

@@ -4,6 +4,7 @@
   "description": "Extremely fast HTTP Archive (HAR) validator using JSON Schema",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
   "homepage": "https://github.com/ahmadnassri/har-validator",
+  "repository": "ahmadnassri/har-validator",
   "license": "MIT",
   "main": "./src/index.js",
   "bin": "./bin/har-validator",
@@ -21,30 +22,32 @@
     "bin",
     "src"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ahmadnassri/har-validator"
-  },
   "bugs": {
     "url": "https://github.com/ahmadnassri/har-validator/issues"
   },
   "scripts": {
-    "test": "standard && mocha --reporter spec",
+    "test": "standard && echint && mocha --reporter spec",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
     "codeclimate": "codeclimate < coverage/lcov.info"
   },
+  "echint": {
+    "ignore": [
+      "coverage/**"
+    ]
+  },
   "devDependencies": {
     "codeclimate-test-reporter": "0.0.4",
-    "istanbul": "^0.3.13",
-    "mocha": "^2.2.4",
+    "echint": "^1.1.0",
+    "istanbul": "^0.3.14",
+    "mocha": "^2.2.5",
     "require-directory": "^2.1.0",
-    "should": "^6.0.1",
-    "standard": "^3.7.2"
+    "should": "^6.0.3",
+    "standard": "^3.11.1"
   },
   "dependencies": {
-    "bluebird": "^2.9.25",
+    "bluebird": "^2.9.26",
     "chalk": "^1.0.0",
     "commander": "^2.8.1",
-    "is-my-json-valid": "^2.10.1"
+    "is-my-json-valid": "^2.12.0"
   }
 }

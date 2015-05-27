@@ -66,7 +66,7 @@ describe('Request Only', function () {
     validate.request(fixtures.request.invalid.malformed, function (e, valid) {
       valid.should.be.false
 
-      e.errors[0].should.have.property('field').and.equal('data.headers.*.name')
+      e.errors[0].should.have.property('field').and.equal('data.headers.0.name')
       e.errors[0].should.have.property('message').and.equal('is required')
 
       done()
