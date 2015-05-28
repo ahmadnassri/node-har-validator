@@ -26,8 +26,10 @@
     "url": "https://github.com/ahmadnassri/har-validator/issues"
   },
   "scripts": {
-    "test": "standard && echint && mocha --reporter spec",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "pretest": "standard && echint",
+    "test": "mocha",
+    "posttest": "npm run coverage",
+    "coverage": "istanbul cover --dir coverage _mocha -- -R dot",
     "codeclimate": "codeclimate < coverage/lcov.info"
   },
   "echint": {
