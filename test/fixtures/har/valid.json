@@ -20,6 +20,7 @@
       {
         "startedDateTime": "2015-02-10T07:33:17.146Z",
         "time": 181.59985542297363,
+        "serverIPAddress": "::1",
         "request": {
           "method": "GET",
           "url": "http://mockbin.com/",
