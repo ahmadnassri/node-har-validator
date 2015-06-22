@@ -5,7 +5,7 @@
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
   "homepage": "https://github.com/ahmadnassri/har-validator",
   "repository": "ahmadnassri/har-validator",
-  "license": "MIT",
+  "license": "ISC",
   "main": "lib/index",
   "bin": "bin/har-validator",
   "keywords": [
