@@ -16,7 +16,6 @@ describe('Full HAR', function () {
 
       done()
     })
-
   })
 
   it('should fail with empty array', function (done) {

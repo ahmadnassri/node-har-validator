@@ -16,7 +16,6 @@ describe('Request Only', function () {
 
       done()
     })
-
   })
 
   it('should fail with empty array', function (done) {
