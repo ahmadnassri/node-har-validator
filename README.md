@@ -46,7 +46,7 @@ har-validator --schema request request.json
 
 ### Validate(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a full [HAR](http://www.softwareishard.com/blog/har-12-spec/) object
@@ -66,7 +66,7 @@ validate(HAR)
 
 ### Validate.log(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [log](http://www.softwareishard.com/blog/har-12-spec/#log) object
@@ -84,7 +84,7 @@ validate.log(data.then(function (HAR) {
 
 ### Validate.cache(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [cache](http://www.softwareishard.com/blog/har-12-spec/#cache) object
@@ -102,7 +102,7 @@ validate.cache(data.then(function (HAR) {
 
 ### Validate.cacheEntry(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a ["beforeRequest" or "afterRequest"](http://www.softwareishard.com/blog/har-12-spec/#cache) objects
@@ -120,7 +120,7 @@ validate.cacheEntry(data.then(function (HAR) {
 
 ### Validate.content(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [content](http://www.softwareishard.com/blog/har-12-spec/#content) object
@@ -138,7 +138,7 @@ validate.content(data.then(function (HAR) {
 
 ### Validate.cookie(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [cookie](http://www.softwareishard.com/blog/har-12-spec/#cookies) object
@@ -156,7 +156,7 @@ validate.cookie(data.then(function (HAR) {
 
 ### Validate.creator(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [creator](http://www.softwareishard.com/blog/har-12-spec/#creator) object
@@ -174,7 +174,7 @@ validate.creator(data.then(function (HAR) {
 
 ### Validate.entry(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   an [entry](http://www.softwareishard.com/blog/har-12-spec/#entries) object
@@ -196,7 +196,7 @@ alias of [`Validate(data)`](#validate-data-callback-)
 
 ### Validate.page(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [page](http://www.softwareishard.com/blog/har-12-spec/#pages) object
@@ -214,7 +214,7 @@ validate.page(data.then(function (HAR) {
 
 ### Validate.pageTimings(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [pageTimings](http://www.softwareishard.com/blog/har-12-spec/#pageTimings) object
@@ -232,7 +232,7 @@ validate.pageTimings(data.then(function (HAR) {
 
 ### Validate.postData(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [postData](http://www.softwareishard.com/blog/har-12-spec/#postData) object
@@ -250,7 +250,7 @@ validate.postData(data.then(function (HAR) {
 
 ### Validate.record(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [record](http://www.softwareishard.com/blog/har-12-spec/#headers) object
@@ -268,7 +268,7 @@ validate.record(data.then(function (HAR) {
 
 ### Validate.request(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [request](http://www.softwareishard.com/blog/har-12-spec/#request) object
@@ -286,7 +286,7 @@ validate.request(data.then(function (HAR) {
 
 ### Validate.response(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [response](http://www.softwareishard.com/blog/har-12-spec/#response) object
@@ -304,7 +304,7 @@ validate.cacheEntry(data.then(function (HAR) {
 
 ### Validate.timings(data)
 
-Returns a promise that resolves to the valid object.
+> Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
   a [timings](http://www.softwareishard.com/blog/har-12-spec/#timings) object
