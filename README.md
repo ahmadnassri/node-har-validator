@@ -326,7 +326,7 @@ validate.timings(data.then(function (HAR) {
 
 ### Validate(data [, callback])
 
-Returns `true` or `false`.
+> Returns `true` or `false`.
 
 ```js
 var HAR = require('./har.json');
