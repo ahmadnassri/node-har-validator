@@ -4,26 +4,22 @@
 
 var validate = require('..')
 
-require('should')
+require('should-promised')
 
 describe('Cache Entry', function () {
-  it('should allow null beforeRequest', function (done) {
+  it('should allow null beforeRequest', function () {
     var cache = {
       beforeRequest: null
     }
 
-    validate.cache(cache).should.be.true
-
-    done()
+    validate.cache(cache).should.be.fulfilled()
   })
 
-  it('should allow null afterRequest', function (done) {
+  it('should allow null afterRequest', function () {
     var cache = {
       beforeRequest: null
     }
 
-    validate.cache(cache).should.be.true
-
-    done()
+    validate.cache(cache).should.be.fulfilled()
   })
 })

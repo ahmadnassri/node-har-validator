@@ -4,29 +4,20 @@
 
 var fixtures = require('./fixtures')
 var validate = require('..')
+var ValidationError = require('../lib/error')
 
-var should = require('should')
+require('should-promised')
 
-describe('Validator', function () {
-  it('should throw error', function (done) {
-    validate({}).should.be.false
-
-    validate({}, function (err, valid) {
-      valid.should.be.false
-      err.should.be.Error
-
-      done()
-    })
+describe('Promises', function () {
+  it('should return a Promise', function () {
+    validate().should.be.a.Promise()
   })
 
-  it('should not throw error', function (done) {
-    validate(fixtures.har.valid).should.be.true
+  it('should throw error', function () {
+    validate({}).should.be.rejectedWith(ValidationError)
+  })
 
-    validate(fixtures.har.valid, function (err, valid) {
-      valid.should.be.true
-      should.not.exist(err)
-
-      done()
-    })
+  it('should be valid', function () {
+    validate(fixtures.har.valid).should.be.fulfilledWith(fixtures.har.valid)
   })
 })
