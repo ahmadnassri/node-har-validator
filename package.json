@@ -51,6 +51,6 @@
     "chalk": "^1.1.1",
     "commander": "^2.8.1",
     "is-my-json-valid": "^2.12.2",
-    "pinkie-promise": "^1.0.0"
+    "pinkie-promise": "^2.0.0"
   }
 }
