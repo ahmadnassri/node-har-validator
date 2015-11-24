@@ -40,17 +40,17 @@
   "devDependencies": {
     "codeclimate-test-reporter": "0.1.1",
     "echint": "^1.5.0",
-    "istanbul": "^0.3.21",
-    "mocha": "^2.3.3",
+    "istanbul": "^0.4.0",
+    "mocha": "^2.3.4",
     "require-directory": "^2.1.1",
-    "should": "^7.1.0",
+    "should": "^7.1.1",
     "should-promised": "^0.3.1",
-    "standard": "^5.3.1"
+    "standard": "^5.4.1"
   },
   "dependencies": {
     "chalk": "^1.1.1",
-    "commander": "^2.8.1",
-    "is-my-json-valid": "^2.12.2",
-    "pinkie-promise": "^1.0.0"
+    "commander": "^2.9.0",
+    "is-my-json-valid": "^2.12.3",
+    "pinkie-promise": "^2.0.0"
   }
 }
