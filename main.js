@@ -84,11 +84,13 @@ $(function () {
       return
     }
 
-    harValidator[schema](data, function (err, valid) {
-      if (valid) {
+    harValidator[schema](data)
+      .then(function () {
         $('.input-container').addClass('has-success')
         $('.input-container .glyphicon').addClass('glyphicon-ok')
-      } else {
+      })
+
+      .catch(function (err) {
         console.log(err)
 
         $('.panel').addClass('error')
@@ -106,7 +108,6 @@ $(function () {
             )
           )
         })
-      }
-    })
+      })
   })
 })
