@@ -6,8 +6,6 @@ var fixtures = require('./fixtures')
 var validate = require('..')
 var ValidationError = require('../lib/error')
 
-require('should-promised')
-
 describe('Response Only', function () {
   it('should fail with empty object', function () {
     validate.response({}).should.be.rejectedWith(ValidationError, {

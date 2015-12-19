@@ -6,8 +6,6 @@ var fixtures = require('./fixtures')
 var validate = require('..')
 var ValidationError = require('../lib/error')
 
-require('should-promised')
-
 describe('Promises', function () {
   it('should return a Promise', function () {
     validate().should.be.a.Promise()

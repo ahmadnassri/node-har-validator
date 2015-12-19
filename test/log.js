@@ -6,8 +6,6 @@ var fixtures = require('./fixtures')
 var validate = require('..')
 var ValidationError = require('../lib/error')
 
-require('should-promised')
-
 describe('Full HAR', function () {
   it('should fail with empty object', function () {
     validate({}).should.be.rejectedWith(ValidationError, {
