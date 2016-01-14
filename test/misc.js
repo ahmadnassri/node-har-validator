@@ -4,8 +4,6 @@
 
 var validate = require('..')
 
-require('should-promised')
-
 describe('Cache Entry', function () {
   it('should allow null beforeRequest', function () {
     var cache = {
