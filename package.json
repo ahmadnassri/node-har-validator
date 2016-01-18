@@ -49,7 +49,7 @@
   "dependencies": {
     "chalk": "^1.1.1",
     "commander": "^2.9.0",
-    "is-my-json-valid": "^2.12.3",
+    "is-my-json-valid": "^2.12.4",
     "pinkie-promise": "^2.0.0"
   }
 }
