@@ -38,8 +38,8 @@
     ]
   },
   "devDependencies": {
-    "codeclimate-test-reporter": "0.1.1",
-    "echint": "^1.5.0",
+    "codeclimate-test-reporter": "0.2.1",
+    "echint": "^1.5.1",
     "istanbul": "^0.4.2",
     "mocha": "^2.3.4",
     "require-directory": "^2.1.1",
@@ -49,7 +49,7 @@
   "dependencies": {
     "chalk": "^1.1.1",
     "commander": "^2.9.0",
-    "is-my-json-valid": "^2.12.3",
+    "is-my-json-valid": "^2.12.4",
     "pinkie-promise": "^2.0.0"
   }
 }
