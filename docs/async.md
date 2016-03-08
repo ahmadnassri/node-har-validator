@@ -17,10 +17,10 @@ import { request, response } from 'har-validator/src/async'
 
 ```js
 // default, ES5 (pre-compiled)
-var validate = require('har-validator/lib/async')
+var validate = require('har-validator/lib/async').default
 ```
 
-### Validate(data)
+### validate.default(data)
 
 > Returns `true` or `false`.
 
@@ -31,7 +31,7 @@ var validate = require('har-validator/lib/async')
 let isValid = validate(data)
 ```
 
-### Validate.log(data)
+### validate.log(data)
 
 > Returns `true` or `false`.
 
@@ -42,7 +42,7 @@ let isValid = validate(data)
 let isValid = validate.log(data)
 ```
 
-### Validate.cache(data)
+### validate.cache(data)
 
 > Returns `true` or `false`.
 
@@ -53,7 +53,7 @@ let isValid = validate.log(data)
 let isValid = validate.cache(data)
 ```
 
-### Validate.cacheEntry(data)
+### validate.cacheEntry(data)
 
 > Returns `true` or `false`.
 
@@ -64,7 +64,7 @@ let isValid = validate.cache(data)
 let isValid = validate.cacheEntry(data)
 ```
 
-### Validate.content(data)
+### validate.content(data)
 
 > Returns `true` or `false`.
 
@@ -75,7 +75,7 @@ let isValid = validate.cacheEntry(data)
 let isValid = validate.content(data)
 ```
 
-### Validate.cookie(data)
+### validate.cookie(data)
 
 > Returns `true` or `false`.
 
@@ -86,7 +86,7 @@ let isValid = validate.content(data)
 let isValid = validate.cookie(data)
 ```
 
-### Validate.creator(data)
+### validate.creator(data)
 
 > Returns `true` or `false`.
 
@@ -97,7 +97,7 @@ let isValid = validate.cookie(data)
 let isValid = validate.creator(data)
 ```
 
-### Validate.entry(data)
+### validate.entry(data)
 
 > Returns `true` or `false`.
 
@@ -108,13 +108,13 @@ let isValid = validate.creator(data)
 let isValid = validate.entry(data)
 ```
 
-### Validate.log(data)
+### validate.log(data)
 
 > Returns `true` or `false`.
 
 alias of [`Validate(data)`](#validate-data-callback-)
 
-### Validate.page(data)
+### validate.page(data)
 
 > Returns `true` or `false`.
 
@@ -125,7 +125,7 @@ alias of [`Validate(data)`](#validate-data-callback-)
 let isValid = validate.page(data)
 ```
 
-### Validate.pageTimings(data)
+### validate.pageTimings(data)
 
 > Returns `true` or `false`.
 
@@ -136,7 +136,7 @@ let isValid = validate.page(data)
 let isValid = validate.pageTimings(data)
 ```
 
-### Validate.postData(data)
+### validate.postData(data)
 
 > Returns `true` or `false`.
 
@@ -147,7 +147,7 @@ let isValid = validate.pageTimings(data)
 let isValid = validate.postData(data)
 ```
 
-### Validate.record(data)
+### validate.record(data)
 
 > Returns `true` or `false`.
 
@@ -158,7 +158,7 @@ let isValid = validate.postData(data)
 let isValid = validate.record(data)
 ```
 
-### Validate.request(data)
+### validate.request(data)
 
 > Returns `true` or `false`.
 
@@ -169,7 +169,7 @@ let isValid = validate.record(data)
 let isValid = validate.request(data)
 ```
 
-### Validate.response(data)
+### validate.response(data)
 
 > Returns `true` or `false`.
 
@@ -180,7 +180,7 @@ let isValid = validate.request(data)
 let isValid = validate.cacheEntry(data)
 ```
 
-### Validate.timings(data)
+### validate.timings(data)
 
 > Returns `true` or `false`.
 

@@ -7,26 +7,26 @@
 import validate from 'har-validator'
 
 // ES5 (pre-compiled)
-import validate from 'har-validator/lib/index'
+import validate from 'har-validator/lib/promise'
 
 // ES2015 (srouce)
-import validate from 'har-validator/src/index'
+import validate from 'har-validator/src/promise'
 
 // ES2015 (srouce)
-import { request, response } from 'har-validator/src/index'
+import { request, response } from 'har-validator/src/promise'
 ```
 
 ###### Require
 
 ```js
 // default
-var validate = require('har-validator')
+var validate = require('har-validator').default
 
 // ES5 (pre-compiled)
-var validate = require('har-validator/lib/index')
+var validate = require('har-validator/lib/promise').default
 ```
 
-### Validate(data)
+### validate.default(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -35,11 +35,11 @@ var validate = require('har-validator/lib/index')
 
 ```js
 validate(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.log(data)
+### validate.log(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -48,11 +48,11 @@ validate(data)
 
 ```js
 validate.log(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.cache(data)
+### validate.cache(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -61,11 +61,11 @@ validate.log(data)
 
 ```js
 validate.cache(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.cacheEntry(data)
+### validate.cacheEntry(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -74,11 +74,11 @@ validate.cache(data)
 
 ```js
 validate.cacheEntry(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.content(data)
+### validate.content(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -87,11 +87,11 @@ validate.cacheEntry(data)
 
 ```js
 validate.content(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.cookie(data)
+### validate.cookie(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -100,11 +100,11 @@ validate.content(data)
 
 ```js
 validate.cookie(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.creator(data)
+### validate.creator(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -113,11 +113,11 @@ validate.cookie(data)
 
 ```js
 validate.creator(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.entry(data)
+### validate.entry(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -126,15 +126,15 @@ validate.creator(data)
 
 ```js
 validate.entry(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.log(data)
+### validate.log(data)
 
 alias of [`Validate(data)`](#validate-data-callback-)
 
-### Validate.page(data)
+### validate.page(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -143,11 +143,11 @@ alias of [`Validate(data)`](#validate-data-callback-)
 
 ```js
 validate.page(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.pageTimings(data)
+### validate.pageTimings(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -156,11 +156,11 @@ validate.page(data)
 
 ```js
 validate.pageTimings(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.postData(data)
+### validate.postData(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -169,11 +169,11 @@ validate.pageTimings(data)
 
 ```js
 validate.postData(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.record(data)
+### validate.record(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -182,11 +182,11 @@ validate.postData(data)
 
 ```js
 validate.record(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.request(data)
+### validate.request(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -195,11 +195,11 @@ validate.record(data)
 
 ```js
 validate.request(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.response(data)
+### validate.response(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -208,11 +208,11 @@ validate.request(data)
 
 ```js
 validate.cacheEntry(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
 
-### Validate.timings(data)
+### validate.timings(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -221,6 +221,6 @@ validate.cacheEntry(data)
 
 ```js
 validate.timings(data)
-  .then(data => console.log('horray!'))
+  .then((data) => console.log('horray!'))
   .catch(console.error)
 ```
