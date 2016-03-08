@@ -1,43 +1,34 @@
-/* global describe, it */
+import HARError from '../src/error'
+import tap from 'tap'
+import validate from '../src/async'
+import { har as fixture } from './fixtures/'
 
-'use strict'
+tap.test('async', (t) => {
+  t.test('failure', (assert) => {
+    let error = new HARError([{ field: 'data.log.version', message: 'is the wrong type' }])
 
-var fixtures = require('./fixtures')
-var validate = require('../lib/async')
+    assert.notOk(validate({}), 'should fail')
 
-var should = require('should')
-
-describe('Validator', function () {
-  it('should throw error for invalid HAR', function (done) {
-    validate({}).should.be.false
-
-    validate({}, function (err, valid) {
-      valid.should.be.false
-      err.should.be.Error
-
-      done()
+    validate({}, (err, valid) => {
+      assert.notOk(valid, 'should return false in a callback')
+      assert.type(err, HARError, 'should return HARError object in a callback')
     })
+
+    validate(fixture.invalid.version, (err) => assert.match(err, error, 'should fail on bad "log.version"'))
+
+    assert.end()
   })
 
-  it('should throw error for invalid log.version', function (done) {
-    validate.har(fixtures.har.invalid.version, function (e, valid) {
-      valid.should.be.false
+  t.test('success', (assert) => {
+    assert.ok(validate(fixture.valid), 'should be successful')
 
-      e.errors[0].should.have.property('field').and.equal('data.log.version')
-      e.errors[0].should.have.property('message').and.equal('is the wrong type')
-
-      done()
+    validate(fixture.valid, (err, valid) => {
+      assert.ok(valid, 'should return true in a callback')
+      assert.equal(err, null, 'should not have any errors')
     })
+
+    assert.end()
   })
 
-  it('should not throw error', function (done) {
-    validate(fixtures.har.valid).should.be.true
-
-    validate(fixtures.har.valid, function (err, valid) {
-      valid.should.be.true
-      should.not.exist(err)
-
-      done()
-    })
-  })
+  t.end()
 })

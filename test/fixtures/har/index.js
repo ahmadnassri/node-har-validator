@@ -1,3 +1,2 @@
-'use strict'
-
-module.exports = require('require-directory')(module)
+export * as invalid from './invalid/'
+export * as valid from './valid.json'

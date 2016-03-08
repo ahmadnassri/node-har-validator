@@ -3,15 +3,24 @@ sudo: false
 language: node_js
 
 node_js:
- - 4.1
- - 4.0
- - 0.12
- - 0.10
- - iojs
+ - 4
+ - 5
 
 cache:
   directories:
     - node_modules
 
-after_script:
+before_script:
+  - npm prune
+
+after_success:
+  - curl -Lo travis_after_all.py https://git.io/travis_after_all
+  - python travis_after_all.py
+  - export $(cat .to_export_back)
+  - npm run coverage
   - npm run codeclimate
+  - npm run semantic-release
+
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"

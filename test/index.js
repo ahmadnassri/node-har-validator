@@ -1,21 +1,13 @@
-/* global describe, it */
+import HARError from '../src/error'
+import tap from 'tap'
+import validate from '../src/index'
+import { har as fixture } from './fixtures/'
 
-'use strict'
+tap.test('promises', (assert) => {
+  assert.ok(validate() instanceof Promise, 'default import is a promise')
 
-var fixtures = require('./fixtures')
-var validate = require('..')
-var ValidationError = require('../lib/error')
-
-describe('Promises', function () {
-  it('should return a Promise', function () {
-    validate().should.be.a.Promise()
-  })
-
-  it('should throw error', function () {
-    validate({}).should.be.rejectedWith(ValidationError)
-  })
-
-  it('should be valid', function () {
-    validate(fixtures.har.valid).should.be.fulfilledWith(fixtures.har.valid)
-  })
+  Promise.all([
+    validate({}).catch((err) => assert.type(err, HARError, 'thrown error is an object')),
+    validate(fixture.valid).then((out) => assert.equal(out, fixture.valid, 'resolves with the original data'))
+  ]).then(assert.end)
 })

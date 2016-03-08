@@ -1,13 +1,17 @@
 {
-  "version": "2.0.6",
   "name": "har-validator",
-  "description": "Extremely fast HTTP Archive (HAR) validator using JSON Schema",
+  "description": "unnamed package",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
   "homepage": "https://github.com/ahmadnassri/har-validator",
-  "repository": "ahmadnassri/har-validator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmadnassri/har-validator.git"
+  },
   "license": "ISC",
-  "main": "lib/index",
-  "bin": "bin/har-validator",
+  "main": "lib/index.js",
+  "bin": {
+    "har-validator": "lib/bin.js"
+  },
   "keywords": [
     "har",
     "http",
@@ -19,37 +23,67 @@
     "node": ">=0.10"
   },
   "files": [
-    "bin",
-    "lib"
+    "schemas",
+    "lib",
+    "src"
   ],
   "bugs": {
     "url": "https://github.com/ahmadnassri/har-validator/issues"
   },
   "scripts": {
+    "compile": "babel -q src --out-dir lib",
+    "test": "tap test/*.js --node-arg=--require --node-arg=babel-register --node-arg=--require --node-arg=babel-polyfill | tap-mocha-reporter spec",
     "pretest": "standard && echint",
-    "test": "mocha",
-    "posttest": "npm run coverage",
-    "coverage": "istanbul cover --dir coverage _mocha -- -R dot",
-    "codeclimate": "codeclimate < coverage/lcov.info"
+    "coverage": "tap test/*.js --coverage --nyc-arg=--require --nyc-arg=babel-register --nyc-arg=--require --nyc-arg=babel-polyfill",
+    "codeclimate": "nyc report --reporter=text-lcov | codeclimate-test-reporter",
+    "prepublish": "npm run compile",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "transform-export-extensions",
+      "transform-object-rest-spread"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "lib/**",
+      "src/index.js",
+      "test/fixtures/**"
+    ]
   },
   "echint": {
     "ignore": [
-      "coverage/**"
+      "lib/**"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "devDependencies": {
-    "codeclimate-test-reporter": "0.2.1",
-    "echint": "^1.5.1",
-    "istanbul": "^0.4.2",
-    "mocha": "^2.3.4",
-    "require-directory": "^2.1.1",
-    "should": "^8.1.1",
-    "standard": "^5.4.1"
+    "babel-cli": "^6.6.5",
+    "babel-plugin-transform-export-extensions": "^6.5.0",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-polyfill": "^6.6.1",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-register": "^6.6.5",
+    "codeclimate-test-reporter": "^0.3.1",
+    "cz-conventional-changelog": "^1.1.5",
+    "echint": "^1.5.3",
+    "nyc": "^6.0.0",
+    "semantic-release": "^6.2.0",
+    "standard": "^6.0.7",
+    "tap": "^5.7.0",
+    "tap-mocha-reporter": "0.0.24"
   },
   "dependencies": {
     "chalk": "^1.1.1",
     "commander": "^2.9.0",
-    "is-my-json-valid": "^2.12.4",
-    "pinkie-promise": "^2.0.0"
+    "is-my-json-valid": "^2.13.1"
   }
 }

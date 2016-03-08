@@ -1,0 +1,20 @@
+engines:
+  fixme:
+    enabled: true
+
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+
+  eslint:
+    enabled: true
+
+ratings:
+  paths:
+    - src/**
+    - test/**
+
+exclude_paths:
+  - template/**

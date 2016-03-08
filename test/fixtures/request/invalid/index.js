@@ -1,3 +1,3 @@
-'use strict'
-
-module.exports = require('require-directory')(module)
+export * as headers from './headers.json'
+export * as malformed from './malformed.json'
+export * as url from './url.json'
