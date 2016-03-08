@@ -5,7 +5,7 @@ import cmd from 'commander'
 import fs from 'fs'
 import path from 'path'
 import pkg from '../package.json'
-import validate, * as schemas from './index'
+import validate, * as schemas from './promise'
 import HARError from './error'
 
 cmd
@@ -19,7 +19,7 @@ if (!cmd.args.length) {
 }
 
 cmd.args.map((fileName) => {
-  var file = chalk.yellow.italic(path.basename(fileName))
+  let file = chalk.yellow.italic(path.basename(fileName))
 
   new Promise((resolve, reject) => {
     fs.readFile(fileName, (err, data) => err === null ? resolve(data) : reject(err))
