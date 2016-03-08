@@ -44,9 +44,9 @@ har-validator --schema request request.json
 
 **Note**: as of [`v2.0.0`](https://github.com/ahmadnassri/har-validator/releases/tag/v2.0.0) this module defaults to Promise based API. *For backward comptability with `v1.x` an [async/callback API](docs/async.md) is also provided*
 
-- [async API](docs/async.md) *(default)*
+- [async API](docs/async.md)
 - [callback API](docs/async.md)
-- [Promise API](docs/promise.md)
+- [Promise API](docs/promise.md) *(default)*
 
 ----
 > :copyright: [www.ahmadnassri.com](https://www.ahmadnassri.com/) &nbsp;&middot;&nbsp;
