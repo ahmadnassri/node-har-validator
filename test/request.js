@@ -1,7 +1,7 @@
 import HARError from '../src/error'
 import tap from 'tap'
 import { request as fixture } from './fixtures/'
-import { request } from '../src/index'
+import { request } from '../src/promise'
 
 const errors = {
   object: new HARError([{ field: 'data.method', message: 'is required' }]),
@@ -13,6 +13,8 @@ const errors = {
 }
 
 tap.test('request', (assert) => {
+  assert.plan(7)
+
   Promise.all([
     request({}).catch((err) => assert.match(err, errors.object, 'should fail with empty object')),
     request([]).catch((err) => assert.match(err, errors.array, 'should fail with empty array')),
@@ -22,6 +24,4 @@ tap.test('request', (assert) => {
     request(fixture.invalid.malformed).catch((err) => assert.match(err, errors.malformed, 'should fail on malformed "headers"')),
     request(fixture.valid).then((out) => assert.equal(out, fixture.valid, 'should not fail with full example'))
   ])
-
-  .then(assert.end)
 })

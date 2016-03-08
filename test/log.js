@@ -1,6 +1,6 @@
 import HARError from '../src/error'
 import tap from 'tap'
-import validate from '../src/index'
+import validate from '../src/promise'
 import { har as fixture } from './fixtures/'
 
 const errors = {
@@ -13,6 +13,8 @@ const errors = {
 }
 
 tap.test('log', (assert) => {
+  assert.plan(7)
+
   Promise.all([
     validate({}).catch((err) => assert.match(err, errors.object, 'should fail with empty object')),
     validate([]).catch((err) => assert.match(err, errors.array, 'should fail with empty array')),
@@ -22,6 +24,4 @@ tap.test('log', (assert) => {
     validate(fixture.invalid.date).catch((err) => assert.match(err, errors.date, 'should fail on bad "log.pages.*.startedDateTime"')),
     validate(fixture.valid).then((out) => assert.equal(out, fixture.valid, 'should not fail with full example'))
   ])
-
-  .then(assert.end)
 })
