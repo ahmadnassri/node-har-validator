@@ -1,6 +1,6 @@
 {
   "name": "har-validator",
-  "description": "unnamed package",
+  "description": "Extremely fast HTTP Archive (HAR) validator using JSON Schema",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
   "homepage": "https://github.com/ahmadnassri/har-validator",
   "repository": {
