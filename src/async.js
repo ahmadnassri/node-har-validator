@@ -1,17 +1,19 @@
 import * as schemas from './schemas'
 import HARError from './error'
-import JSONValidator from 'is-my-json-valid'
+import Ajv from 'ajv'
 
 export function validator (schema, data = {}, cb) {
   // default value
   let valid = false
 
   // validator config
-  let validate = JSONValidator(schema, {
-    greedy: true,
-    verbose: true,
-    schemas: schemas
+  let ajv = new Ajv({
+    allErrors: true,
+    schemas: schemas,
+    validateSchema: false
   })
+
+  let validate = ajv.compile(schema)
 
   // execute is-my-json-valid
   valid = validate(data)
