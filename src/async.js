@@ -9,8 +9,7 @@ export function validator (schema, data = {}, cb) {
   // validator config
   let ajv = new Ajv({
     allErrors: true,
-    schemas: schemas,
-    validateSchema: false
+    schemas: schemas
   })
 
   let validate = ajv.compile(schema)
