@@ -1,4 +1,4 @@
-import * as schemas from './schemas'
+import schemas from './schemas'
 import HARError from './error'
 import JSONValidator from 'is-my-json-valid'
 
