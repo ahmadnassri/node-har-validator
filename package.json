@@ -77,7 +77,7 @@
     "semantic-release": "^6.2.0",
     "standard": "^7.1.2",
     "tap": "^5.7.0",
-    "tap-mocha-reporter": "0.0.24"
+    "tap-mocha-reporter": "0.0.26"
   },
   "dependencies": {
     "chalk": "^1.1.3",
