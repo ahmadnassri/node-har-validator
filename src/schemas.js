@@ -1,62 +1,34 @@
-import cache from '../schemas/cache.json'
-import cacheEntry from '../schemas/cacheEntry.json'
-import content from '../schemas/content.json'
-import cookie from '../schemas/cookie.json'
-import creator from '../schemas/creator.json'
-import entry from '../schemas/entry.json'
-import har from '../schemas/har.json'
-import log from '../schemas/log.json'
-import page from '../schemas/page.json'
-import pageTimings from '../schemas/pageTimings.json'
-import postData from '../schemas/postData.json'
-import record from '../schemas/record.json'
-import request from '../schemas/request.json'
-import response from '../schemas/response.json'
-import timings from '../schemas/timings.json'
+import * as schemas from 'har-schema'
 
 /*
  * copy external scheams internally
  * is-my-json-valid does not provide meaningful error messages for external schemas
  */
 
-cache.properties.beforeRequest = cacheEntry
-cache.properties.afterRequest = cacheEntry
+schemas.cache.properties.beforeRequest = schemas.cacheEntry
+schemas.cache.properties.afterRequest = schemas.cacheEntry
 
-page.properties.pageTimings = pageTimings
+schemas.page.properties.pageTimings = schemas.pageTimings
 
-request.properties.cookies.items = cookie
-request.properties.headers.items = record
-request.properties.queryString.items = record
-request.properties.postData = postData
+schemas.request.properties.cookies.items = schemas.cookie
+schemas.request.properties.headers.items = schemas.record
+schemas.request.properties.queryString.items = schemas.record
+schemas.request.properties.postData = schemas.postData
 
-response.properties.cookies.items = cookie
-response.properties.headers.items = record
-response.properties.content = content
+schemas.response.properties.cookies.items = schemas.cookie
+schemas.response.properties.headers.items = schemas.record
+schemas.response.properties.content = schemas.content
 
-entry.properties.request = request
-entry.properties.response = response
-entry.properties.cache = cache
-entry.properties.timings = timings
+schemas.entry.properties.request = schemas.request
+schemas.entry.properties.response = schemas.response
+schemas.entry.properties.cache = schemas.cache
+schemas.entry.properties.timings = schemas.timings
 
-log.properties.creator = creator
-log.properties.browser = creator
-log.properties.pages.items = page
-log.properties.entries.items = entry
+schemas.log.properties.creator = schemas.creator
+schemas.log.properties.browser = schemas.creator
+schemas.log.properties.pages.items = schemas.page
+schemas.log.properties.entries.items = schemas.entry
 
-har.properties.log = log
+schemas.har.properties.log = schemas.log
 
-export { cache }
-export { cacheEntry }
-export { content }
-export { cookie }
-export { creator }
-export { entry }
-export { har }
-export { log }
-export { page }
-export { pageTimings }
-export { postData }
-export { record }
-export { request }
-export { response }
-export { timings }
+export default schemas

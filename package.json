@@ -82,6 +82,7 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
+    "har-schema": "0.1.0",
     "is-my-json-valid": "^2.13.1"
   }
 }
