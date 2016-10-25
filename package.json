@@ -76,7 +76,7 @@
     "nyc": "^8.1.0",
     "semantic-release": "^6.2.0",
     "standard": "^8.0.0",
-    "tap": "^7.0.0",
+    "tap": "^8.0.0",
     "tap-mocha-reporter": "3.0.0"
   },
   "dependencies": {
