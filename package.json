@@ -1,4 +1,5 @@
 {
+  "version": "0.0.0-development",
   "name": "har-validator",
   "description": "Extremely fast HTTP Archive (HAR) validator using JSON Schema",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
@@ -21,7 +22,7 @@
     "validator"
   ],
   "engines": {
-    "node": ">= 4"
+    "node": ">=4"
   },
   "files": [
     "schemas",
@@ -32,26 +33,16 @@
     "url": "https://github.com/ahmadnassri/har-validator/issues"
   },
   "scripts": {
-    "compile": "babel -q src --out-dir lib",
-    "test": "tap test/*.js --node-arg=--require --node-arg=babel-register --node-arg=--require --node-arg=babel-polyfill | tap-mocha-reporter spec",
-    "pretest": "standard && echint",
-    "coverage": "tap test/*.js --coverage --nyc-arg=--require --nyc-arg=babel-register --nyc-arg=--require --nyc-arg=babel-polyfill",
+    "compile": "babel -q src",
+    "test": "BABEL_ENV=test tap test/*.js --node-arg=--require --node-arg=babel-register | tap-mocha-reporter spec",
+    "pretest": "snazzy && echint",
+    "coverage": "BABEL_ENV=test tap test/*.js --coverage --nyc-arg=--require --nyc-arg=babel-register",
     "codeclimate": "nyc report --reporter=text-lcov | codeclimate-test-reporter",
-    "prepublish": "npm run compile",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ],
-    "plugins": [
-      "transform-export-extensions"
-    ]
   },
   "standard": {
     "ignore": [
-      "lib/**",
-      "test/fixtures/**"
+      "lib/**"
     ]
   },
   "echint": {
@@ -65,23 +56,21 @@
     }
   },
   "devDependencies": {
-    "babel-cli": "^6.6.5",
-    "babel-plugin-transform-export-extensions": "^6.5.0",
-    "babel-polyfill": "^6.7.4",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-register": "^6.7.2",
+    "babel-cli": "^6.18.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "0.0.8",
+    "babel-register": "^6.18.0",
     "codeclimate-test-reporter": "^0.4.0",
-    "cz-conventional-changelog": "^1.1.5",
+    "cz-conventional-changelog": "^1.2.0",
     "echint": "^1.5.3",
-    "nyc": "^8.1.0",
-    "semantic-release": "^6.2.0",
-    "standard": "^8.0.0",
-    "tap": "^8.0.0",
-    "tap-mocha-reporter": "3.0.0"
+    "semantic-release": "^6.3.2",
+    "snazzy": "^5.0.0",
+    "tap": "^8.0.1",
+    "tap-mocha-reporter": "^3.0.0"
   },
   "dependencies": {
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
-    "is-my-json-valid": "^2.13.1"
+    "is-my-json-valid": "^2.15.0"
   }
 }

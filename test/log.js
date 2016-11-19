@@ -1,7 +1,7 @@
 import HARError from '../src/error'
-import tap from 'tap'
 import validate from '../src/promise'
 import { har as fixture } from './fixtures/'
+import { test } from 'tap'
 
 const errors = {
   object: new HARError([{ field: 'data.log', message: 'is required' }]),
@@ -12,7 +12,7 @@ const errors = {
   date: new HARError([{ field: 'data.log.pages.0.startedDateTime', message: 'must be date-time format' }])
 }
 
-tap.test('log', (assert) => {
+test('log', (assert) => {
   assert.plan(7)
 
   Promise.all([

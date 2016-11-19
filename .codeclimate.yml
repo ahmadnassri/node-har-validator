@@ -15,6 +15,3 @@ ratings:
   paths:
     - src/**
     - test/**
-
-exclude_paths:
-  - template/**

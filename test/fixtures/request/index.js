@@ -1,2 +1,4 @@
-export * as invalid from './invalid/'
-export * as valid from './valid.json'
+import * as invalid from './invalid/'
+import valid from './valid.json'
+
+export { invalid, valid }

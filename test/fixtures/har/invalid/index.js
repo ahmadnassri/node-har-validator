@@ -1,3 +1,5 @@
-export * as creator from './creator.json'
-export * as date from './date.json'
-export * as version from './version.json'
+import creator from './creator.json'
+import date from './date.json'
+import version from './version.json'
+
+export { creator, date, version }

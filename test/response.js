@@ -1,7 +1,7 @@
 import HARError from '../src/error'
-import tap from 'tap'
 import { response as fixture } from './fixtures/'
 import { response } from '../src/promise'
+import { test } from 'tap'
 
 const errors = {
   object: new HARError([{ field: 'data.status', message: 'is required' }]),
@@ -12,7 +12,7 @@ const errors = {
   malformed: new HARError([{ field: 'data.headers.0.name', message: 'is required' }])
 }
 
-tap.test('response', (assert) => {
+test('response', (assert) => {
   assert.plan(7)
 
   Promise.all([

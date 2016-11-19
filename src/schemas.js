@@ -45,18 +45,20 @@ log.properties.entries.items = entry
 
 har.properties.log = log
 
-export { cache }
-export { cacheEntry }
-export { content }
-export { cookie }
-export { creator }
-export { entry }
-export { har }
-export { log }
-export { page }
-export { pageTimings }
-export { postData }
-export { record }
-export { request }
-export { response }
-export { timings }
+export {
+  cache,
+  cacheEntry,
+  content,
+  cookie,
+  creator,
+  entry,
+  har,
+  log,
+  page,
+  pageTimings,
+  postData,
+  record,
+  request,
+  response,
+  timings
+}

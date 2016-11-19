@@ -1,9 +1,9 @@
 import HARError from '../src/error'
-import tap from 'tap'
 import validate from '../src/promise'
 import { har as fixture } from './fixtures/'
+import { test } from 'tap'
 
-tap.test('promises', (assert) => {
+test('promises', (assert) => {
   assert.plan(3)
 
   assert.type(validate(), Promise, 'default import is a promise')

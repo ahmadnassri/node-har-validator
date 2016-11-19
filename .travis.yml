@@ -1,10 +1,15 @@
-sudo: false
-
 language: node_js
 
 node_js:
  - 4
- - 5
+ - 6
+ - 7
+
+env:
+  - BABEL_ENV=test
+
+matrix:
+  fast_finish: true
 
 cache:
   directories:
@@ -14,13 +19,15 @@ before_script:
   - npm prune
 
 after_success:
-  - curl -Lo travis_after_all.py https://git.io/travis_after_all
-  - python travis_after_all.py
-  - export $(cat .to_export_back)
   - npm run coverage
   - npm run codeclimate
+  - BABEL_ENV=v4 npm run compile -- -d lib
+  - BABEL_ENV=v6 npm run compile -- -d lib/node6
+  - BABEL_ENV=v7 npm run compile -- -d lib/node7
+  - BABEL_ENV=browsers npm run compile -- -d lib/browsers
   - npm run semantic-release
 
 branches:
   except:
-    - "/^v\\d+\\.\\d+\\.\\d+$/"
+    - /^v\d+\.\d+\.\d+$/
+    - /^greenkeeper\/.+/

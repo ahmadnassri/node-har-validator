@@ -1,7 +1,7 @@
-import tap from 'tap'
+import { test } from 'tap'
 import { cache } from '../src/promise'
 
-tap.test('Cache Entry', (assert) => {
+test('Cache Entry', (assert) => {
   assert.plan(2)
 
   Promise.all([
