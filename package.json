@@ -34,7 +34,7 @@
   },
   "scripts": {
     "compile": "babel -q src",
-    "test": "BABEL_ENV=test tap test/*.js --node-arg=--require --node-arg=babel-register | tap-mocha-reporter spec",
+    "test": "BABEL_ENV=test tap test/*.js --reporter spec --node-arg=--require --node-arg=babel-register",
     "pretest": "snazzy && echint",
     "coverage": "BABEL_ENV=test tap test/*.js --coverage --nyc-arg=--require --nyc-arg=babel-register",
     "codeclimate": "nyc report --reporter=text-lcov | codeclimate-test-reporter",
@@ -65,8 +65,7 @@
     "echint": "^1.5.3",
     "semantic-release": "^6.3.2",
     "snazzy": "^5.0.0",
-    "tap": "^8.0.1",
-    "tap-mocha-reporter": "^3.0.0"
+    "tap": "^8.0.1"
   },
   "dependencies": {
     "chalk": "^1.1.3",
