@@ -62,7 +62,7 @@
     "babel-register": "^6.18.0",
     "codeclimate-test-reporter": "^0.4.0",
     "cz-conventional-changelog": "^1.2.0",
-    "echint": "^1.5.3",
+    "echint": "^2.0.0",
     "nyc": "^9.0.1",
     "semantic-release": "^6.3.2",
     "snazzy": "^5.0.0",
