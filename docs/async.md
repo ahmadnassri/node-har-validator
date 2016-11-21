@@ -1,23 +1,8 @@
 ## async API
 
-###### Import
-
 ```js
-// default, ES5 (pre-compiled)
-import validate from 'har-validator/lib/async'
-
-// ES2015 (srouce)
-import validate from 'har-validator/src/async'
-
-// ES2015 (srouce)
-import { request, response } from 'har-validator/src/async'
-```
-
-###### Require
-
-```js
-// default, ES5 (pre-compiled)
-var validate = require('har-validator/lib/async').default
+import validate from 'har-validator/lib/{node-version}/async'
+import { request, response } from 'har-validator/lib/{node-version}/async'
 ```
 
 ### validate.default(data)

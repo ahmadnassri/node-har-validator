@@ -1,29 +1,10 @@
 ## Promise API
 
-###### Import
 
 ```js
-// default
 import validate from 'har-validator'
-
-// ES5 (pre-compiled)
-import validate from 'har-validator/lib/promise'
-
-// ES2015 (srouce)
-import validate from 'har-validator/src/promise'
-
-// ES2015 (srouce)
-import { request, response } from 'har-validator/src/promise'
-```
-
-###### Require
-
-```js
-// default
-var validate = require('har-validator').default
-
-// ES5 (pre-compiled)
-var validate = require('har-validator/lib/promise').default
+import validate from 'har-validator/lib/{node-version}/promise'
+import { request, response } from 'har-validator/lib/{node-version}/promise'
 ```
 
 ### validate.default(data)
