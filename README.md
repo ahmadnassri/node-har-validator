@@ -23,18 +23,18 @@ I recommend using an optimized build matching your Node.js environment version, 
 /*
  * Node 7
  */
-const har-validator = require('har-validator/lib/node7')
+const validator = require('har-validator/lib/node7')
 
 /*
  * Node 6
  */
-const har-validator = require('har-validator/lib/node6')
+const validator = require('har-validator/lib/node6')
 
 /*
  * Node 4 (Default)
  * Note: additional ES2015 polyfills may be required
  */
-var har-validator = require('har-validator')
+var validator = require('har-validator')
 ```
 
 
