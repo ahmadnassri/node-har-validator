@@ -8,232 +8,245 @@ import { request, response } from 'har-validator/lib/{node-version}/async'
 ### validate.default(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a full [HAR](http://www.softwareishard.com/blog/har-12-spec/) object
+  a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.default(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.default(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.log(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [log](http://www.softwareishard.com/blog/har-12-spec/#log) object
+  a [log](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#log) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.log(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.log(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.cache(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [cache](http://www.softwareishard.com/blog/har-12-spec/#cache) object
+  a [cache](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.cache(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.cache(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.cacheEntry(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a ["beforeRequest" or "afterRequest"](http://www.softwareishard.com/blog/har-12-spec/#cache) objects
+  a ["beforeRequest" or "afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.cacheEntry(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.cacheEntry(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.content(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [content](http://www.softwareishard.com/blog/har-12-spec/#content) object
+  a [content](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#content) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.content(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.content(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.cookie(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [cookie](http://www.softwareishard.com/blog/har-12-spec/#cookies) object
+  a [cookie](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cookies) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.cookie(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.cookie(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.creator(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [creator](http://www.softwareishard.com/blog/har-12-spec/#creator) object
+  a [creator](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#creator) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.creator(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.creator(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.entry(data [, callback])
 
 - **data**: `Object` *(Required)*
-  an [entry](http://www.softwareishard.com/blog/har-12-spec/#entries) object
+  an [entry](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#entries) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.entry(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.entry(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.log(data [, callback])
 
-alias of [`Validate(data, (e, valid) => {
-  if (e) console.error(e.errors)
+alias of [`Validate(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })`](#validate-data-callback-)
 
 - **data**: `Object` *(Required)*
-  a [page](http://www.softwareishard.com/blog/har-12-spec/#pages) object
+  a [page](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#pages) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.page(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.page(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.pageTimings(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [pageTimings](http://www.softwareishard.com/blog/har-12-spec/#pageTimings) object
+  a [pageTimings](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#pageTimings) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.pageTimings(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.pageTimings(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.postData(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [postData](http://www.softwareishard.com/blog/har-12-spec/#postData, (e, valid) => {
-  if (e) co- **callback**: `Function`
-  callback function with signature of `(err, valid)`
-nsole.error(e.errors)
-
-  if (valid) console.log('horray!')
-}) object
-validate.postData(data, (e, valid) => {
-  if (e) console.error(e.errors)
-
-  if (valid) console.log('horray!')
-})
-```
-
-### validate.record(data [, callback])
-
-- **data**: `Object` *(Required)*
-  a [record](http://www.softwareishard.com/blog/har-12-spec/#headers) object
+  a [postData](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#postdata') object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.record(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.postData(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
+})
+```
+
+### validate.header(data [, callback])
+
+- **data**: `Object` *(Required)*
+  a [header](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#headers) object
+- **callback**: `Function`
+  callback function with signature of `(err, valid)`
+
+```js
+validate.header(data, (err, valid) => {
+  if (err) console.error(err.errors)
+
+  if (valid) console.log('✔️')
+})
+```
+
+### validate.query(data [, callback])
+
+- **data**: `Object` *(Required)*
+  a [queryString](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#querystring) object
+- **callback**: `Function`
+  callback function with signature of `(err, valid)`
+
+```js
+validate.query(data, (err, valid) => {
+  if (err) console.error(err.errors)
+
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.request(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [request](http://www.softwareishard.com/blog/har-12-spec/#request) object
+  a [request](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#request) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.request(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.request(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.response(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [response](http://www.softwareishard.com/blog/har-12-spec/#response) object
+  a [response](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#response) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.cacheEntry(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.cacheEntry(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```
 
 ### validate.timings(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [timings](http://www.softwareishard.com/blog/har-12-spec/#timings) object
+  a [timings](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#timings) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.timings(data, (e, valid) => {
-  if (e) console.error(e.errors)
+validate.timings(data, (err, valid) => {
+  if (err) console.error(err.errors)
 
-  if (valid) console.log('horray!')
+  if (valid) console.log('✔️')
 })
 ```

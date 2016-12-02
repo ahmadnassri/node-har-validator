@@ -10,7 +10,7 @@ import { request, response } from 'har-validator/lib/{node-version}/async'
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a full [HAR](http://www.softwareishard.com/blog/har-12-spec/) object
+  a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
 
 ```js
 let isValid = validate(data)
@@ -21,7 +21,7 @@ let isValid = validate(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [log](http://www.softwareishard.com/blog/har-12-spec/#log) object
+  a [log](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#log) object
 
 ```js
 let isValid = validate.log(data)
@@ -32,7 +32,7 @@ let isValid = validate.log(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [cache](http://www.softwareishard.com/blog/har-12-spec/#cache) object
+  a [cache](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) object
 
 ```js
 let isValid = validate.cache(data)
@@ -43,7 +43,7 @@ let isValid = validate.cache(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a ["beforeRequest" or "afterRequest"](http://www.softwareishard.com/blog/har-12-spec/#cache) objects
+  a ["beforeRequest" or "afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 
 ```js
 let isValid = validate.cacheEntry(data)
@@ -54,7 +54,7 @@ let isValid = validate.cacheEntry(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [content](http://www.softwareishard.com/blog/har-12-spec/#content) object
+  a [content](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#content) object
 
 ```js
 let isValid = validate.content(data)
@@ -65,7 +65,7 @@ let isValid = validate.content(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [cookie](http://www.softwareishard.com/blog/har-12-spec/#cookies) object
+  a [cookie](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cookies) object
 
 ```js
 let isValid = validate.cookie(data)
@@ -76,7 +76,7 @@ let isValid = validate.cookie(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [creator](http://www.softwareishard.com/blog/har-12-spec/#creator) object
+  a [creator](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#creator) object
 
 ```js
 let isValid = validate.creator(data)
@@ -87,7 +87,7 @@ let isValid = validate.creator(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  an [entry](http://www.softwareishard.com/blog/har-12-spec/#entries) object
+  an [entry](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#entries) object
 
 ```js
 let isValid = validate.entry(data)
@@ -104,7 +104,7 @@ alias of [`Validate(data)`](#validate-data-callback-)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [page](http://www.softwareishard.com/blog/har-12-spec/#pages) object
+  a [page](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#pages) object
 
 ```js
 let isValid = validate.page(data)
@@ -115,7 +115,7 @@ let isValid = validate.page(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [pageTimings](http://www.softwareishard.com/blog/har-12-spec/#pageTimings) object
+  a [pageTimings](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#pageTimings) object
 
 ```js
 let isValid = validate.pageTimings(data)
@@ -126,21 +126,32 @@ let isValid = validate.pageTimings(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [postData](http://www.softwareishard.com/blog/har-12-spec/#postData) object
+  a [postData](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#postData) object
 
 ```js
 let isValid = validate.postData(data)
 ```
 
-### validate.record(data)
+### validate.header(data)
 
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [record](http://www.softwareishard.com/blog/har-12-spec/#headers) object
+  a [header](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#headers) object
 
 ```js
-let isValid = validate.record(data)
+let isValid = validate.header(data)
+```
+
+### validate.query(data)
+
+> Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [queryString](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#querystring) object
+
+```js
+let isValid = validate.query(data)
 ```
 
 ### validate.request(data)
@@ -148,7 +159,7 @@ let isValid = validate.record(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [request](http://www.softwareishard.com/blog/har-12-spec/#request) object
+  a [request](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#request) object
 
 ```js
 let isValid = validate.request(data)
@@ -159,7 +170,7 @@ let isValid = validate.request(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [response](http://www.softwareishard.com/blog/har-12-spec/#response) object
+  a [response](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#response) object
 
 ```js
 let isValid = validate.cacheEntry(data)
@@ -170,7 +181,7 @@ let isValid = validate.cacheEntry(data)
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [timings](http://www.softwareishard.com/blog/har-12-spec/#timings) object
+  a [timings](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#timings) object
 
 ```js
 let isValid = validate.timings(data)

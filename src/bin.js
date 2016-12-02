@@ -3,10 +3,10 @@
 import chalk from 'chalk'
 import cmd from 'commander'
 import fs from 'fs'
+import HARError from './error'
 import path from 'path'
 import pkg from '../package.json'
 import validate, * as schemas from './promise'
-import HARError from './error'
 
 cmd
   .version(pkg.version)

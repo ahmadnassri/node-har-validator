@@ -12,11 +12,11 @@ import { request, response } from 'har-validator/lib/{node-version}/promise'
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a full [HAR](http://www.softwareishard.com/blog/har-12-spec/) object
+  a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
 
 ```js
 validate(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -25,11 +25,11 @@ validate(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [log](http://www.softwareishard.com/blog/har-12-spec/#log) object
+  a [log](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#log) object
 
 ```js
 validate.log(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -38,11 +38,11 @@ validate.log(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [cache](http://www.softwareishard.com/blog/har-12-spec/#cache) object
+  a [cache](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) object
 
 ```js
 validate.cache(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -51,11 +51,11 @@ validate.cache(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a ["beforeRequest" or "afterRequest"](http://www.softwareishard.com/blog/har-12-spec/#cache) objects
+  a ["beforeRequest" or "afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 
 ```js
 validate.cacheEntry(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -64,11 +64,11 @@ validate.cacheEntry(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [content](http://www.softwareishard.com/blog/har-12-spec/#content) object
+  a [content](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#content) object
 
 ```js
 validate.content(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -77,11 +77,11 @@ validate.content(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [cookie](http://www.softwareishard.com/blog/har-12-spec/#cookies) object
+  a [cookie](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cookies) object
 
 ```js
 validate.cookie(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -90,11 +90,11 @@ validate.cookie(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [creator](http://www.softwareishard.com/blog/har-12-spec/#creator) object
+  a [creator](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#creator) object
 
 ```js
 validate.creator(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -103,11 +103,11 @@ validate.creator(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  an [entry](http://www.softwareishard.com/blog/har-12-spec/#entries) object
+  an [entry](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#entries) object
 
 ```js
 validate.entry(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -120,11 +120,11 @@ alias of [`Validate(data)`](#validate-data-callback-)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [page](http://www.softwareishard.com/blog/har-12-spec/#pages) object
+  a [page](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#pages) object
 
 ```js
 validate.page(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -133,11 +133,11 @@ validate.page(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [pageTimings](http://www.softwareishard.com/blog/har-12-spec/#pageTimings) object
+  a [pageTimings](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#pageTimings) object
 
 ```js
 validate.pageTimings(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -146,24 +146,37 @@ validate.pageTimings(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [postData](http://www.softwareishard.com/blog/har-12-spec/#postData) object
+  a [postData](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#postData) object
 
 ```js
 validate.postData(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
-### validate.record(data)
+### validate.header(data)
 
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [record](http://www.softwareishard.com/blog/har-12-spec/#headers) object
+  a [header](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#headers) object
 
 ```js
-validate.record(data)
-  .then((data) => console.log('horray!'))
+validate.header(data)
+  .then((data) => console.log('✔️'))
+  .catch(console.error)
+```
+
+### validate.query(data)
+
+> Returns a promise that resolves to the valid object.
+
+- **data**: `Object` *(Required)*
+  a [queryString](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#querystring) object
+
+```js
+validate.query(data)
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -172,11 +185,11 @@ validate.record(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [request](http://www.softwareishard.com/blog/har-12-spec/#request) object
+  a [request](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#request) object
 
 ```js
 validate.request(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -185,11 +198,11 @@ validate.request(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [response](http://www.softwareishard.com/blog/har-12-spec/#response) object
+  a [response](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#response) object
 
 ```js
 validate.cacheEntry(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
@@ -198,10 +211,10 @@ validate.cacheEntry(data)
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [timings](http://www.softwareishard.com/blog/har-12-spec/#timings) object
+  a [timings](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#timings) object
 
 ```js
 validate.timings(data)
-  .then((data) => console.log('horray!'))
+  .then((data) => console.log('✔️'))
   .catch(console.error)
 ```

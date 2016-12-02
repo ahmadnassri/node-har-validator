@@ -62,7 +62,11 @@ export function postData (data) {
   return validator(schemas.postData, data)
 }
 
-export function record (data) {
+export function header (data) {
+  return validator(schemas.record, data)
+}
+
+export function query (data) {
   return validator(schemas.record, data)
 }
 
