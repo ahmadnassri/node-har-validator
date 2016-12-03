@@ -4,12 +4,12 @@ import { response } from '../src/promise'
 import { test } from 'tap'
 
 const errors = {
-  object: new HARError([{ field: 'data.status', message: 'is required' }]),
-  array: new HARError([{ field: 'data', message: 'is the wrong type' }]),
-  undef: new HARError([{ field: 'data.status', message: 'is required' }]),
-  bodySize: new HARError([{ field: 'data.bodySize', message: 'is the wrong type' }]),
-  headers: new HARError([{ field: 'data.headers', message: 'is the wrong type' }]),
-  malformed: new HARError([{ field: 'data.headers.0.name', message: 'is required' }])
+  object: new HARError([{ dataPath: '', message: "should have required property 'status'" }]),
+  array: new HARError([{ dataPath: '', message: 'should be object' }]),
+  undef: new HARError([{ dataPath: '', message: "should have required property 'status'" }]),
+  bodySize: new HARError([{ dataPath: '.bodySize', message: 'should be integer' }]),
+  headers: new HARError([{ dataPath: '.headers', message: 'should be array' }]),
+  malformed: new HARError([{ dataPath: '.headers[0]', message: "should have required property 'name'" }])
 }
 
 test('response', (assert) => {

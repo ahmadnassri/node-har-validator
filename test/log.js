@@ -1,15 +1,15 @@
 import HARError from '../src/error'
-import validate from '../src/promise'
+import { har as validate } from '../src/promise'
 import { har as fixture } from './fixtures/'
 import { test } from 'tap'
 
 const errors = {
-  object: new HARError([{ field: 'data.log', message: 'is required' }]),
-  array: new HARError([{ field: 'data', message: 'is the wrong type' }]),
-  undef: new HARError([{ field: 'data.log', message: 'is required' }]),
-  version: new HARError([{ field: 'data.log.version', message: 'is the wrong type' }]),
-  creator: new HARError([{ field: 'data.log.creator.version', message: 'is the wrong type' }]),
-  date: new HARError([{ field: 'data.log.pages.0.startedDateTime', message: 'must be date-time format' }])
+  object: new HARError([{ dataPath: '', message: "should have required property 'log'" }]),
+  array: new HARError([{ dataPath: '', message: 'should be object' }]),
+  undef: new HARError([{ dataPath: '', message: "should have required property 'log'" }]),
+  version: new HARError([{ dataPath: '.log.version', message: 'should be string' }]),
+  creator: new HARError([{ dataPath: '.log.creator.version', message: 'should be string' }]),
+  date: new HARError([{ dataPath: '.log.pages[0].startedDateTime', message: 'should match pattern' }])
 }
 
 test('log', (assert) => {

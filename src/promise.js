@@ -1,24 +1,25 @@
-import * as schemas from './schemas'
+import * as schemas from 'har-schema'
+import Ajv from 'ajv'
 import HARError from './error'
-import JSONValidator from 'is-my-json-valid'
 
 export function validator (schema, data = {}) {
   return new Promise((resolve, reject) => {
     // validator config
-    let validate = JSONValidator(schema, {
-      greedy: true,
-      verbose: true,
+    let ajv = new Ajv({
+      allErrors: true,
       schemas: schemas
     })
 
-    // execute is-my-json-valid
+    let validate = ajv.compile(schema)
+
+    // execute validation
     validate(data)
 
     validate.errors ? reject(new HARError(validate.errors)) : resolve(data)
   })
 }
 
-export default function har (data) {
+export function har (data) {
   return validator(schemas.har, data)
 }
 

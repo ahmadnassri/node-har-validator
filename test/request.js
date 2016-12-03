@@ -4,12 +4,12 @@ import { request } from '../src/promise'
 import { test } from 'tap'
 
 const errors = {
-  object: new HARError([{ field: 'data.method', message: 'is required' }]),
-  array: new HARError([{ field: 'data', message: 'is the wrong type' }]),
-  undef: new HARError([{ field: 'data.method', message: 'is required' }]),
-  url: new HARError([{ field: 'data.url', message: 'must be uri format' }]),
-  headers: new HARError([{ field: 'data.headers', message: 'is the wrong type' }]),
-  malformed: new HARError([{ field: 'data.headers.0.name', message: 'is required' }])
+  object: new HARError([{ dataPath: '', message: "should have required property 'method'" }]),
+  array: new HARError([{ dataPath: '', message: 'should be object' }]),
+  undef: new HARError([{ dataPath: '', message: "should have required property 'method'" }]),
+  url: new HARError([{ dataPath: '.url', message: 'should match format "uri"' }]),
+  headers: new HARError([{ dataPath: '.headers', message: 'should be array' }]),
+  malformed: new HARError([{ dataPath: '.headers[0]', message: "should have required property 'name'" }])
 }
 
 test('request', (assert) => {

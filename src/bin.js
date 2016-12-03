@@ -1,24 +1,24 @@
 #!/usr/bin/env node
 
+import * as validate from './promise'
 import chalk from 'chalk'
-import cmd from 'commander'
+import program from 'commander'
 import fs from 'fs'
 import HARError from './error'
 import path from 'path'
-import pkg from '../package.json'
-import validate, * as schemas from './promise'
 
-cmd
-  .version(pkg.version)
+program
   .usage('[options] <files...>')
   .option('-s, --schema [name]', 'validate schema name (log, request, response, etc ...)')
   .parse(process.argv)
 
-if (!cmd.args.length) {
-  cmd.help()
+if (!program.args.length) {
+  program.help()
 }
 
-cmd.args.map((fileName) => {
+let schema = program.schema || 'har'
+
+program.args.map((fileName) => {
   let file = chalk.yellow.italic(path.basename(fileName))
 
   new Promise((resolve, reject) => {
@@ -26,18 +26,20 @@ cmd.args.map((fileName) => {
   })
 
   .then(JSON.parse)
-  .then(cmd.schema && cmd.schema !== 'har' ? schemas[cmd.schema] : validate)
-  .then((data) => console.log('%s [%s] is valid', chalk.green('✓'), file))
+  .then(validate[schema])
+  .then((data) => console.log('%s [%s] is a valid %s', chalk.green('✓'), file, chalk.magenta(schema)))
   .catch((err) => {
+    console.error('[%s]', file)
+
     if (err instanceof SyntaxError) {
-      return console.error('%s [%s] failed to read JSON: %s', chalk.red('✖'), file, chalk.red(err.message))
+      return console.error('%s failed to read JSON: %s', chalk.red('✖'), chalk.red(err.message))
     }
 
     if (err instanceof HARError) {
-      err.errors.forEach((details) => console.error('%s [%s] failed validation: (%s: %s) %s', chalk.red('✖'), file, chalk.cyan.italic(details.field), chalk.magenta.italic(details.value), chalk.red(details.message)))
+      err.errors.forEach((details) => console.error('%s validation failed on %s: %s', chalk.red('✖'), chalk.cyan.italic(details.dataPath || '.'), chalk.red(details.message)))
       return
     }
 
-    console.error('%s [%s] an unknown error has occured: %s', chalk.red('✖'), file, chalk.red(err.message))
+    console.error('%s an unknown error has occured: %s', chalk.red('✖'), chalk.red(err.message))
   })
 })

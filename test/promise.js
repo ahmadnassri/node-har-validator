@@ -1,5 +1,5 @@
 import HARError from '../src/error'
-import validate from '../src/promise'
+import { har as validate } from '../src/promise'
 import { har as fixture } from './fixtures/'
 import { test } from 'tap'
 

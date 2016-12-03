@@ -1,5 +1,5 @@
 import HARError from '../src/error'
-import validate from '../src/async'
+import { har as validate } from '../src/async'
 import { har as fixture } from './fixtures/'
 import { test } from 'tap'
 
@@ -9,7 +9,7 @@ test('async', (tap) => {
   tap.test('failure', (assert) => {
     assert.plan(4)
 
-    let error = new HARError([{ field: 'data.log.version', message: 'is the wrong type' }])
+    let error = new HARError([{ dataPath: '.log.version', message: 'should be string' }])
 
     assert.notOk(validate({}), 'should fail')
 
@@ -18,7 +18,9 @@ test('async', (tap) => {
       assert.type(err, HARError, 'should return HARError object in a callback')
     })
 
-    validate(fixture.invalid.version, (err) => assert.match(err, error, 'should fail on bad "log.version"'))
+    validate(fixture.invalid.version, (err) => {
+      assert.match(err, error, 'should fail on bad "log.version"')
+    })
   })
 
   tap.test('success', (assert) => {

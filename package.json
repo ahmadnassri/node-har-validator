@@ -16,6 +16,7 @@
   "keywords": [
     "har",
     "cli",
+    "ajv",
     "http",
     "archive",
     "validate",
@@ -34,9 +35,11 @@
   },
   "scripts": {
     "compile": "babel -q src",
-    "test": "BABEL_ENV=test tap test/*.js --reporter spec --node-arg=--require --node-arg=babel-register",
+    "test": "BABEL_ENV=test tap test --reporter spec --node-arg=--require --node-arg=babel-register",
+    "test-one": "BABEL_ENV=test tap --reporter spec --node-arg=--require --node-arg=babel-register",
+    "test-cli": "BABEL_ENV=test babel-node src/bin.js",
     "pretest": "snazzy && echint",
-    "coverage": "BABEL_ENV=test tap test/*.js --reporter silent --coverage --nyc-arg=--require --nyc-arg=babel-register",
+    "coverage": "BABEL_ENV=test tap test --reporter silent --coverage --nyc-arg=--require --nyc-arg=babel-register",
     "codeclimate": "BABEL_ENV=test tap --coverage-report=text-lcov | codeclimate-test-reporter",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -68,8 +71,9 @@
     "tap": "^8.0.1"
   },
   "dependencies": {
+    "ajv": "^4.9.0",
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
-    "is-my-json-valid": "^2.15.0"
+    "har-schema": "^0.1.0"
   }
 }

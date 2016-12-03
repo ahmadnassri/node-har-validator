@@ -2,12 +2,12 @@
 
 
 ```js
-import validate from 'har-validator'
-import validate from 'har-validator/lib/{node-version}/promise'
+import * as validate from 'har-validator'
+import * as validate from 'har-validator/lib/{node-version}/promise'
 import { request, response } from 'har-validator/lib/{node-version}/promise'
 ```
 
-### validate.default(data)
+### validate.har(data)
 
 > Returns a promise that resolves to the valid object.
 
@@ -15,7 +15,7 @@ import { request, response } from 'har-validator/lib/{node-version}/promise'
   a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
 
 ```js
-validate(data)
+validate.har(data)
   .then((data) => console.log('✔️'))
   .catch(console.error)
 ```

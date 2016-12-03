@@ -23,27 +23,17 @@ I recommend using an optimized build matching your Node.js environment version, 
 /*
  * Node 7
  */
-const validator = require('har-validator/lib/node7')
+const validate = require('har-validator/lib/node7')
 
 /*
  * Node 6
  */
-const validator = require('har-validator/lib/node6')
+const validate = require('har-validator/lib/node6')
 
 /*
  * Node 4 (Default)
- * Note: additional ES2015 polyfills may be required
  */
-var validator = require('har-validator')
-```
-
-
-```bash
-# to use in cli
-npm install --global har-validator
-
-# to use as a module
-npm install --save har-validator
+var validate = require('har-validator')
 ```
 
 ## CLI Usage
@@ -63,9 +53,9 @@ npm install --save har-validator
 ###### Example
 
 ```shell
-har-validator har.json
+$ har-validator har.json
 
-har-validator --schema request request.json
+$ har-validator --schema=request request.json
 ```
 
 ## API

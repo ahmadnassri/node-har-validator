@@ -1,11 +1,11 @@
 ## async API
 
 ```js
-import validate from 'har-validator/lib/{node-version}/async'
+import * as validate from 'har-validator/lib/{node-version}/async'
 import { request, response } from 'har-validator/lib/{node-version}/async'
 ```
 
-### validate.default(data)
+### validate.har(data)
 
 > Returns `true` or `false`.
 
@@ -13,7 +13,7 @@ import { request, response } from 'har-validator/lib/{node-version}/async'
   a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
 
 ```js
-let isValid = validate(data)
+let isValid = validate.har(data)
 ```
 
 ### validate.log(data)

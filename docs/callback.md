@@ -1,11 +1,11 @@
 ## Callback API
 
 ```js
-import validate from 'har-validator/lib/{node-version}/async'
+import * as validate from 'har-validator/lib/{node-version}/async'
 import { request, response } from 'har-validator/lib/{node-version}/async'
 ```
 
-### validate.default(data [, callback])
+### validate.har(data [, callback])
 
 - **data**: `Object` *(Required)*
   a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
@@ -13,7 +13,7 @@ import { request, response } from 'har-validator/lib/{node-version}/async'
   callback function with signature of `(err, valid)`
 
 ```js
-validate.default(data, (err, valid) => {
+validate.har(data, (err, valid) => {
   if (err) console.error(err.errors)
 
   if (valid) console.log('✔️')

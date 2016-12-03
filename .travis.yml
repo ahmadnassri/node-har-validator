@@ -17,14 +17,14 @@ cache:
 
 before_script:
   - npm prune
+  - BABEL_ENV=v4 npm run compile -- -d lib/node4
+  - BABEL_ENV=v6 npm run compile -- -d lib/node6
+  - BABEL_ENV=v7 npm run compile -- -d lib/node7
+  - BABEL_ENV=browser npm run compile -- -d lib/browser
 
 after_success:
   - npm run coverage
   - npm run codeclimate
-  - BABEL_ENV=v4 npm run compile -- -d lib/node4
-  - BABEL_ENV=v6 npm run compile -- -d lib/node6
-  - BABEL_ENV=v7 npm run compile -- -d lib/node7
-  - BABEL_ENV=browsers npm run compile -- -d lib/browsers
   - npm run semantic-release
 
 branches:
