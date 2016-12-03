@@ -9,9 +9,9 @@
     "url": "https://github.com/ahmadnassri/har-validator.git"
   },
   "license": "ISC",
-  "main": "lib/promise.js",
+  "main": "lib/node4/promise.js",
   "bin": {
-    "har-validator": "lib/bin.js"
+    "har-validator": "lib/node4/bin.js"
   },
   "keywords": [
     "har",
