@@ -15,7 +15,7 @@ const errors = {
 test('request', (assert) => {
   assert.plan(7)
 
-  Promise.all([
+  return Promise.all([
     request({}).catch((err) => assert.match(err, errors.object, 'should fail with empty object')),
     request([]).catch((err) => assert.match(err, errors.array, 'should fail with empty array')),
     request(undefined).catch((err) => assert.match(err, errors.undef, 'should fail with undefined')),
