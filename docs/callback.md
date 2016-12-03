@@ -110,6 +110,21 @@ validate.creator(data, (err, valid) => {
 })
 ```
 
+### validate.browser(data [, callback])
+
+- **data**: `Object` *(Required)*
+  a [browser](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#browser) object
+- **callback**: `Function`
+  callback function with signature of `(err, valid)`
+
+```js
+validate.browser(data, (err, valid) => {
+  if (err) console.error(err.errors)
+
+  if (valid) console.log('✔️')
+})
+```
+
 ### validate.entry(data [, callback])
 
 - **data**: `Object` *(Required)*

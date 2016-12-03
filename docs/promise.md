@@ -98,6 +98,19 @@ validate.creator(data)
   .catch(console.error)
 ```
 
+### validate.browser(data)
+
+> Returns a promise that resolves to the valid object.
+
+- **data**: `Object` *(Required)*
+  a [browser](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#browser) object
+
+```js
+validate.browser(data)
+  .then((data) => console.log('✔️'))
+  .catch(console.error)
+```
+
 ### validate.entry(data)
 
 > Returns a promise that resolves to the valid object.

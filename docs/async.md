@@ -82,6 +82,17 @@ let isValid = validate.cookie(data)
 let isValid = validate.creator(data)
 ```
 
+### validate.browser(data)
+
+> Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [browser](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#browser) object
+
+```js
+let isValid = validate.browser(data)
+```
+
 ### validate.entry(data)
 
 > Returns `true` or `false`.

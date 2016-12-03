@@ -48,6 +48,10 @@ export function creator (data, cb) {
   return validator(schemas.creator, data, cb)
 }
 
+export function browser (data, cb) {
+  return validator(schemas.browser, data, cb)
+}
+
 export function entry (data, cb) {
   return validator(schemas.entry, data, cb)
 }
