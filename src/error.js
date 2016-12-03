@@ -1,7 +1,7 @@
 export default function HARError (errors) {
   let message = 'validation failed'
 
-  this.name = this.constructor.name
+  this.name = 'HARError'
   this.message = message
   this.errors = errors
 
