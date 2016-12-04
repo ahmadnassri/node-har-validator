@@ -105,7 +105,16 @@
           "headersSize": 430,
           "bodySize": 30
         },
-        "cache": {},
+        "cache": {
+          "beforeRequest": null,
+          "afterRequest": {
+              "expires": "2009-04-16T15:50:36",
+              "lastAccess": "2009-16-02T15:50:34",
+              "eTag": "",
+              "hitCount": 0,
+              "comment": ""
+          }
+        },
         "timings": {
           "blocked": 0.381000001652865,
           "dns": -1,
