@@ -12,9 +12,9 @@ export function validate (name, data = {}) {
   let validate = ajv.getSchema(name + '.json')
 
   return new Promise((resolve, reject) => {
-    validate(data)
+    let valid = validate(data)
 
-    validate.errors ? reject(new HARError(validate.errors)) : resolve(data)
+    !valid ? reject(new HARError(validate.errors)) : resolve(data)
   })
 }
 

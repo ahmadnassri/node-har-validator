@@ -15,7 +15,7 @@ export function validate (name, data = {}, next) {
 
   // callback?
   if (typeof next === 'function') {
-    return next(validate.errors ? new HARError(validate.errors) : null, valid)
+    return next(!valid ? new HARError(validate.errors) : null, valid)
   }
 
   return valid
