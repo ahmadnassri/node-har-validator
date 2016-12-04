@@ -1,5 +1,6 @@
 import HARError from '../src/error'
-import { request as fixture } from './fixtures/'
+import invalid from './fixtures/request/invalid'
+import valid from './fixtures/request/valid'
 import { request } from '../src/promise'
 import { test } from 'tap'
 
@@ -19,9 +20,9 @@ test('request', (assert) => {
     request({}).catch((err) => assert.match(err, errors.object, 'should fail with empty object')),
     request([]).catch((err) => assert.match(err, errors.array, 'should fail with empty array')),
     request(undefined).catch((err) => assert.match(err, errors.undef, 'should fail with undefined')),
-    request(fixture.invalid.url).catch((err) => assert.match(err, errors.url, 'should fail on bad "url"')),
-    request(fixture.invalid.headers).catch((err) => assert.match(err, errors.headers, 'should fail on bad "headers"')),
-    request(fixture.invalid.malformed).catch((err) => assert.match(err, errors.malformed, 'should fail on malformed "headers"')),
-    request(fixture.valid).then((out) => assert.equal(out, fixture.valid, 'should not fail with full example'))
+    request(invalid.url).catch((err) => assert.match(err, errors.url, 'should fail on bad "url"')),
+    request(invalid.headers).catch((err) => assert.match(err, errors.headers, 'should fail on bad "headers"')),
+    request(invalid.malformed).catch((err) => assert.match(err, errors.malformed, 'should fail on malformed "headers"')),
+    request(valid).then((out) => assert.equal(out, valid, 'should not fail with full example'))
   ])
 })

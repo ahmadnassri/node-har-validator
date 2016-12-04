@@ -1,5 +1,6 @@
 import HARError from '../src/error'
-import { response as fixture } from './fixtures/'
+import invalid from './fixtures/response/invalid'
+import valid from './fixtures/response/valid'
 import { response } from '../src/promise'
 import { test } from 'tap'
 
@@ -19,9 +20,9 @@ test('response', (assert) => {
     response({}).catch((err) => assert.match(err, errors.object, 'should fail with empty object')),
     response([]).catch((err) => assert.match(err, errors.array, 'should fail with empty array')),
     response(undefined).catch((err) => assert.match(err, errors.undef, 'should fail with undefined')),
-    response(fixture.invalid.bodySize).catch((err) => assert.match(err, errors.bodySize, 'should fail on bad "bodySize"')),
-    response(fixture.invalid.headers).catch((err) => assert.match(err, errors.headers, 'should fail on bad "headers"')),
-    response(fixture.invalid.malformed).catch((err) => assert.match(err, errors.malformed, 'should fail on malformed "headers"')),
-    response(fixture.valid).then((out) => assert.equal(out, fixture.valid, 'should not fail with full example'))
+    response(invalid.bodySize).catch((err) => assert.match(err, errors.bodySize, 'should fail on bad "bodySize"')),
+    response(invalid.headers).catch((err) => assert.match(err, errors.headers, 'should fail on bad "headers"')),
+    response(invalid.malformed).catch((err) => assert.match(err, errors.malformed, 'should fail on malformed "headers"')),
+    response(valid).then((out) => assert.equal(out, valid, 'should not fail with full example'))
   ])
 })

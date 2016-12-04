@@ -1,0 +1,50 @@
+{
+  "bodySize": {
+    "status": 200,
+    "statusText": "OK",
+    "httpVersion": "HTTP/1.1",
+    "headers": [],
+    "cookies": [],
+    "content": {
+      "size": 0,
+      "mimeType": "text/html"
+    },
+    "redirectURL": "",
+    "headersSize": 0,
+    "bodySize": "0"
+  },
+
+  "headers": {
+    "status": 200,
+    "statusText": "OK",
+    "httpVersion": "HTTP/1.1",
+    "headers": {},
+    "cookies": [],
+    "content": {
+      "size": 0,
+      "mimeType": "text/html"
+    },
+    "redirectURL": "",
+    "headersSize": 0,
+    "bodySize": 0
+  },
+
+  "malformed": {
+    "status": 200,
+    "statusText": "OK",
+    "httpVersion": "HTTP/1.1",
+    "headers": [
+      {
+        "foo": "bar"
+      }
+    ],
+    "cookies": [],
+    "content": {
+      "size": 0,
+      "mimeType": "text/html"
+    },
+    "redirectURL": "",
+    "headersSize": 0,
+    "bodySize": 0
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "creator": {
+    "log": {
+      "version": "1.2",
+      "creator": {
+        "name": "",
+        "version": 2
+      },
+      "pages": [],
+      "entries": []
+    }
+  },
+
+  "date": {
+    "log": {
+      "version": "1.2",
+      "creator": {
+        "name": "WebInspector",
+        "version": "537.36"
+      },
+      "pages": [
+        {
+          "startedDateTime": "2015-02-10T07:33:17.146",
+          "id": "page_1",
+          "title": "http://mockbin.com/",
+          "pageTimings": {
+            "onContentLoad": 627.4099349975586,
+            "onLoad": 1266.5300369262695
+          }
+        }
+      ],
+      "entries": []
+    }
+  },
+
+  "version": {
+    "log": {
+      "version": 1.2,
+      "creator": {
+        "name": "",
+        "version": ""
+      },
+      "pages": [],
+      "entries": []
+    }
+  }
+}

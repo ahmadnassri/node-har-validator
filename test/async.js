@@ -1,7 +1,8 @@
-import HARError from '../src/error'
 import * as schemas from 'har-schema'
 import * as validate from '../src/async'
-import { har as fixture } from './fixtures/'
+import HARError from '../src/error'
+import invalid from './fixtures/har/invalid'
+import valid from './fixtures/har/valid'
 import { test } from 'tap'
 
 test('async', (tap) => {
@@ -25,7 +26,7 @@ test('async', (tap) => {
       assert.type(err, HARError, 'should return HARError object in a callback')
     })
 
-    validate.har(fixture.invalid.version, (err) => {
+    validate.har(invalid.version, (err) => {
       assert.match(err, error, 'should fail on bad "log.version"')
     })
   })
@@ -33,9 +34,9 @@ test('async', (tap) => {
   tap.test('success', (assert) => {
     assert.plan(3)
 
-    assert.ok(validate.har(fixture.valid), 'should be successful')
+    assert.ok(validate.har(valid), 'should be successful')
 
-    validate.har(fixture.valid, (err, valid) => {
+    validate.har(valid, (err, valid) => {
       assert.ok(valid, 'should return true in a callback')
       assert.equal(err, null, 'should not have any errors')
     })

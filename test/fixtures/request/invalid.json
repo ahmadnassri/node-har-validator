@@ -1,0 +1,38 @@
+{
+  "headers": {
+    "method": "GET",
+    "url": "http://mockbin.com/",
+    "httpVersion": "HTTP/1.1",
+    "headers": {},
+    "queryString": [],
+    "cookies": [],
+    "headersSize": 0,
+    "bodySize": 0
+  },
+
+  "malformed": {
+    "method": "GET",
+    "url": "http://mockbin.com/",
+    "httpVersion": "HTTP/1.1",
+    "headers": [
+      {
+        "foo": "bar"
+      }
+    ],
+    "queryString": [],
+    "cookies": [],
+    "headersSize": 0,
+    "bodySize": 0
+  },
+
+  "url": {
+    "method": "GET",
+    "url": "mockbin.com",
+    "httpVersion": "HTTP/1.1",
+    "headers": [],
+    "queryString": [],
+    "cookies": [],
+    "headersSize": 0,
+    "bodySize": 0
+  }
+}

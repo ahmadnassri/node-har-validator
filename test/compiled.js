@@ -1,6 +1,6 @@
-var validate = require(`../lib/node${process.version.slice(1, 2)}/promise`)
 var fixture = require('./fixtures/har/valid')
 var test = require('tap').test
+var validate = require(`../lib/node${process.version.slice(1, 2)}/promise`)
 
 test('promises', (assert) => {
   assert.plan(2)

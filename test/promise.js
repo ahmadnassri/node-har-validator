@@ -1,7 +1,7 @@
 import * as schemas from 'har-schema'
 import * as validate from '../src/promise'
 import HARError from '../src/error'
-import { har as fixture } from './fixtures/'
+import fixture from './fixtures/har/valid'
 import { test } from 'tap'
 
 test('promises', (assert) => {
@@ -18,7 +18,7 @@ test('promises', (assert) => {
     assert.type(err, HARError, 'thrown error is an object')
   })
 
-  validate.har(fixture.valid).then((out) => {
-    assert.equal(out, fixture.valid, 'resolves with the original data')
+  validate.har(fixture).then((out) => {
+    assert.equal(out, fixture, 'resolves with the original data')
   })
 })
