@@ -7,28 +7,41 @@ import * as validate from 'har-validator/lib/{node-version}/promise'
 import { request, response } from 'har-validator/lib/{node-version}/promise'
 ```
 
-### validate.har(data)
+### validate.afterRequest(data)
 
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
+  a [afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 
 ```js
-validate.har(data)
+validate.afterRequest(data)
   .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
 
-### validate.log(data)
+### validate.beforeRequest(data)
 
 > Returns a promise that resolves to the valid object.
 
 - **data**: `Object` *(Required)*
-  a [log](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#log) object
+  a ["beforeRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 
 ```js
-validate.log(data)
+validate.beforeRequest(data)
+  .then((data) => console.log('✔️'))
+  .catch(console.error)
+```
+
+### validate.browser(data)
+
+> Returns a promise that resolves to the valid object.
+
+- **data**: `Object` *(Required)*
+  a [browser](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#browser) object
+
+```js
+validate.browser(data)
   .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
@@ -42,19 +55,6 @@ validate.log(data)
 
 ```js
 validate.cache(data)
-  .then((data) => console.log('✔️'))
-  .catch(console.error)
-```
-
-### validate.cacheEntry(data)
-
-> Returns a promise that resolves to the valid object.
-
-- **data**: `Object` *(Required)*
-  a ["beforeRequest" or "afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
-
-```js
-validate.cacheEntry(data)
   .then((data) => console.log('✔️'))
   .catch(console.error)
 ```
@@ -98,19 +98,6 @@ validate.creator(data)
   .catch(console.error)
 ```
 
-### validate.browser(data)
-
-> Returns a promise that resolves to the valid object.
-
-- **data**: `Object` *(Required)*
-  a [browser](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#browser) object
-
-```js
-validate.browser(data)
-  .then((data) => console.log('✔️'))
-  .catch(console.error)
-```
-
 ### validate.entry(data)
 
 > Returns a promise that resolves to the valid object.
@@ -124,9 +111,44 @@ validate.entry(data)
   .catch(console.error)
 ```
 
+### validate.har(data)
+
+> Returns a promise that resolves to the valid object.
+
+- **data**: `Object` *(Required)*
+  a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
+
+```js
+validate.har(data)
+  .then((data) => console.log('✔️'))
+  .catch(console.error)
+```
+
+### validate.header(data)
+
+> Returns a promise that resolves to the valid object.
+
+- **data**: `Object` *(Required)*
+  a [header](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#headers) object
+
+```js
+validate.header(data)
+  .then((data) => console.log('✔️'))
+  .catch(console.error)
+```
+
 ### validate.log(data)
 
-alias of [`Validate(data)`](#validate-data-callback-)
+> Returns a promise that resolves to the valid object.
+
+- **data**: `Object` *(Required)*
+  a [log](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#log) object
+
+```js
+validate.log(data)
+  .then((data) => console.log('✔️'))
+  .catch(console.error)
+```
 
 ### validate.page(data)
 
@@ -163,19 +185,6 @@ validate.pageTimings(data)
 
 ```js
 validate.postData(data)
-  .then((data) => console.log('✔️'))
-  .catch(console.error)
-```
-
-### validate.header(data)
-
-> Returns a promise that resolves to the valid object.
-
-- **data**: `Object` *(Required)*
-  a [header](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#headers) object
-
-```js
-validate.header(data)
   .then((data) => console.log('✔️'))
   .catch(console.error)
 ```

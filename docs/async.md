@@ -5,26 +5,37 @@ import * as validate from 'har-validator/lib/{node-version}/async'
 import { request, response } from 'har-validator/lib/{node-version}/async'
 ```
 
-### validate.har(data)
+### validate.afterRequest(data)
 
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
+  a [afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 
 ```js
-let isValid = validate.har(data)
+let isValid = validate.afterRequest(data)
 ```
 
-### validate.log(data)
+### validate.beforeRequest(data)
 
 > Returns `true` or `false`.
 
 - **data**: `Object` *(Required)*
-  a [log](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#log) object
+  a ["afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 
 ```js
-let isValid = validate.log(data)
+let isValid = validate.beforeRequest(data)
+```
+
+### validate.browser(data)
+
+> Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [browser](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#browser) object
+
+```js
+let isValid = validate.browser(data)
 ```
 
 ### validate.cache(data)
@@ -36,17 +47,6 @@ let isValid = validate.log(data)
 
 ```js
 let isValid = validate.cache(data)
-```
-
-### validate.cacheEntry(data)
-
-> Returns `true` or `false`.
-
-- **data**: `Object` *(Required)*
-  a ["beforeRequest" or "afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
-
-```js
-let isValid = validate.cacheEntry(data)
 ```
 
 ### validate.content(data)
@@ -82,17 +82,6 @@ let isValid = validate.cookie(data)
 let isValid = validate.creator(data)
 ```
 
-### validate.browser(data)
-
-> Returns `true` or `false`.
-
-- **data**: `Object` *(Required)*
-  a [browser](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#browser) object
-
-```js
-let isValid = validate.browser(data)
-```
-
 ### validate.entry(data)
 
 > Returns `true` or `false`.
@@ -104,11 +93,38 @@ let isValid = validate.browser(data)
 let isValid = validate.entry(data)
 ```
 
+### validate.har(data)
+
+> Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
+
+```js
+let isValid = validate.har(data)
+```
+
+### validate.header(data)
+
+> Returns `true` or `false`.
+
+- **data**: `Object` *(Required)*
+  a [header](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#headers) object
+
+```js
+let isValid = validate.header(data)
+```
+
 ### validate.log(data)
 
 > Returns `true` or `false`.
 
-alias of [`Validate(data)`](#validate-data-callback-)
+- **data**: `Object` *(Required)*
+  a [log](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#log) object
+
+```js
+let isValid = validate.log(data)
+```
 
 ### validate.page(data)
 
@@ -141,17 +157,6 @@ let isValid = validate.pageTimings(data)
 
 ```js
 let isValid = validate.postData(data)
-```
-
-### validate.header(data)
-
-> Returns `true` or `false`.
-
-- **data**: `Object` *(Required)*
-  a [header](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#headers) object
-
-```js
-let isValid = validate.header(data)
 ```
 
 ### validate.query(data)

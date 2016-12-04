@@ -5,30 +5,45 @@ import * as validate from 'har-validator/lib/{node-version}/async'
 import { request, response } from 'har-validator/lib/{node-version}/async'
 ```
 
-### validate.har(data [, callback])
+### validate.afterRequest(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
+  a [afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.har(data, (err, valid) => {
+validate.afterRequest(data, (err, valid) => {
   if (err) console.error(err.errors)
 
   if (valid) console.log('✔️')
 })
 ```
 
-### validate.log(data [, callback])
+### validate.beforeRequest(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [log](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#log) object
+  a ["beforeRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
 ```js
-validate.log(data, (err, valid) => {
+validate.beforeRequest(data, (err, valid) => {
+  if (err) console.error(err.errors)
+
+  if (valid) console.log('✔️')
+})
+```
+
+### validate.browser(data [, callback])
+
+- **data**: `Object` *(Required)*
+  a [browser](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#browser) object
+- **callback**: `Function`
+  callback function with signature of `(err, valid)`
+
+```js
+validate.browser(data, (err, valid) => {
   if (err) console.error(err.errors)
 
   if (valid) console.log('✔️')
@@ -44,21 +59,6 @@ validate.log(data, (err, valid) => {
 
 ```js
 validate.cache(data, (err, valid) => {
-  if (err) console.error(err.errors)
-
-  if (valid) console.log('✔️')
-})
-```
-
-### validate.cacheEntry(data [, callback])
-
-- **data**: `Object` *(Required)*
-  a ["beforeRequest" or "afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
-- **callback**: `Function`
-  callback function with signature of `(err, valid)`
-
-```js
-validate.cacheEntry(data, (err, valid) => {
   if (err) console.error(err.errors)
 
   if (valid) console.log('✔️')
@@ -110,21 +110,6 @@ validate.creator(data, (err, valid) => {
 })
 ```
 
-### validate.browser(data [, callback])
-
-- **data**: `Object` *(Required)*
-  a [browser](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#browser) object
-- **callback**: `Function`
-  callback function with signature of `(err, valid)`
-
-```js
-validate.browser(data, (err, valid) => {
-  if (err) console.error(err.errors)
-
-  if (valid) console.log('✔️')
-})
-```
-
 ### validate.entry(data [, callback])
 
 - **data**: `Object` *(Required)*
@@ -140,16 +125,55 @@ validate.entry(data, (err, valid) => {
 })
 ```
 
-### validate.log(data [, callback])
+### validate.har(data [, callback])
 
-alias of [`Validate(data, (err, valid) => {
+- **data**: `Object` *(Required)*
+  a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
+- **callback**: `Function`
+  callback function with signature of `(err, valid)`
+
+```js
+validate.har(data, (err, valid) => {
   if (err) console.error(err.errors)
 
   if (valid) console.log('✔️')
-})`](#validate-data-callback-)
+})
+```
+
+### validate.header(data [, callback])
 
 - **data**: `Object` *(Required)*
-  a [page](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#pages) object
+  a [header](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#headers) object
+- **callback**: `Function`
+  callback function with signature of `(err, valid)`
+
+```js
+validate.header(data, (err, valid) => {
+  if (err) console.error(err.errors)
+
+  if (valid) console.log('✔️')
+})
+```
+
+### validate.log(data [, callback])
+
+- **data**: `Object` *(Required)*
+  a [log](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#log) object
+- **callback**: `Function`
+  callback function with signature of `(err, valid)`
+
+```js
+validate.log(data, (err, valid) => {
+  if (err) console.error(err.errors)
+
+  if (valid) console.log('✔️')
+})
+```
+
+### validate.page(data [, callback])
+
+- **data**: `Object` *(Required)*
+  a [page](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#page) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
 
@@ -185,21 +209,6 @@ validate.pageTimings(data, (err, valid) => {
 
 ```js
 validate.postData(data, (err, valid) => {
-  if (err) console.error(err.errors)
-
-  if (valid) console.log('✔️')
-})
-```
-
-### validate.header(data [, callback])
-
-- **data**: `Object` *(Required)*
-  a [header](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#headers) object
-- **callback**: `Function`
-  callback function with signature of `(err, valid)`
-
-```js
-validate.header(data, (err, valid) => {
   if (err) console.error(err.errors)
 
   if (valid) console.log('✔️')
