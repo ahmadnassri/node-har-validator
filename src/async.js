@@ -25,16 +25,20 @@ export function validator (schema, data = {}, cb) {
   return valid
 }
 
+export function afterRequest (data, cb) {
+  return validator(schemas.afterRequest, data, cb)
+}
+
+export function beforeRequest (data, cb) {
+  return validator(schemas.beforeRequest, data, cb)
+}
+
 export function browser (data, cb) {
   return validator(schemas.browser, data, cb)
 }
 
 export function cache (data, cb) {
   return validator(schemas.cache, data, cb)
-}
-
-export function cacheEntry (data, cb) {
-  return validator(schemas.cacheEntry, data, cb)
 }
 
 export function content (data, cb) {

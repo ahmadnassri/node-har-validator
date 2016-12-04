@@ -19,16 +19,20 @@ export function validator (schema, data = {}) {
   })
 }
 
+export function afterRequest (data) {
+  return validator(schemas.afterRequest, data)
+}
+
+export function beforeRequest (data) {
+  return validator(schemas.beforeRequest, data)
+}
+
 export function browser (data) {
   return validator(schemas.browser, data)
 }
 
 export function cache (data) {
   return validator(schemas.cache, data)
-}
-
-export function cacheEntry (data) {
-  return validator(schemas.cacheEntry, data)
 }
 
 export function content (data) {
