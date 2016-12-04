@@ -1,15 +1,24 @@
+import * as schemas from 'har-schema'
+import * as validate from '../src/promise'
 import HARError from '../src/error'
-import { har as validate } from '../src/promise'
 import { har as fixture } from './fixtures/'
 import { test } from 'tap'
 
 test('promises', (assert) => {
-  assert.plan(3)
+  let keys = Object.keys(schemas).filter((key) => key !== 'default')
 
-  assert.type(validate(fixture.valid), Promise, 'default import is a promise')
+  assert.plan((keys.length * 2) + 2)
 
-  return Promise.all([
-    validate({}).catch((err) => assert.type(err, HARError, 'thrown error is an object')),
-    validate(fixture.valid).then((out) => assert.equal(out, fixture.valid, 'resolves with the original data'))
-  ])
+  keys.forEach(key => {
+    assert.type(validate[key], 'function', `${key} is a function`)
+    assert.type(validate[key]().catch(() => {}), Promise, `${key}() is a promise`)
+  })
+
+  validate.har({}).catch((err) => {
+    assert.type(err, HARError, 'thrown error is an object')
+  })
+
+  validate.har(fixture.valid).then((out) => {
+    assert.equal(out, fixture.valid, 'resolves with the original data')
+  })
 })

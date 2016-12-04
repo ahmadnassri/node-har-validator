@@ -1,24 +1,31 @@
 import HARError from '../src/error'
-import { har as validate } from '../src/async'
+import * as schemas from 'har-schema'
+import * as validate from '../src/async'
 import { har as fixture } from './fixtures/'
 import { test } from 'tap'
 
 test('async', (tap) => {
-  tap.plan(2)
+  let keys = Object.keys(schemas).filter((key) => key !== 'default')
+
+  tap.plan(keys.length + 2)
+
+  keys.forEach(key => {
+    tap.type(validate[key], 'function', `${key} is a function`)
+  })
 
   tap.test('failure', (assert) => {
     assert.plan(4)
 
     let error = new HARError([{ dataPath: '.log.version', message: 'should be string' }])
 
-    assert.notOk(validate({}), 'should fail')
+    assert.notOk(validate.har({}), 'should fail')
 
-    validate({}, (err, valid) => {
+    validate.har({}, (err, valid) => {
       assert.notOk(valid, 'should return false in a callback')
       assert.type(err, HARError, 'should return HARError object in a callback')
     })
 
-    validate(fixture.invalid.version, (err) => {
+    validate.har(fixture.invalid.version, (err) => {
       assert.match(err, error, 'should fail on bad "log.version"')
     })
   })
@@ -26,9 +33,9 @@ test('async', (tap) => {
   tap.test('success', (assert) => {
     assert.plan(3)
 
-    assert.ok(validate(fixture.valid), 'should be successful')
+    assert.ok(validate.har(fixture.valid), 'should be successful')
 
-    validate(fixture.valid, (err, valid) => {
+    validate.har(fixture.valid, (err, valid) => {
       assert.ok(valid, 'should return true in a callback')
       assert.equal(err, null, 'should not have any errors')
     })

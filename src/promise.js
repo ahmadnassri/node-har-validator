@@ -19,8 +19,8 @@ export function validator (schema, data = {}) {
   })
 }
 
-export function har (data) {
-  return validator(schemas.har, data)
+export function browser (data) {
+  return validator(schemas.browser, data)
 }
 
 export function cache (data) {
@@ -47,6 +47,14 @@ export function entry (data) {
   return validator(schemas.entry, data)
 }
 
+export function har (data) {
+  return validator(schemas.har, data)
+}
+
+export function header (data) {
+  return validator(schemas.header, data)
+}
+
 export function log (data) {
   return validator(schemas.log, data)
 }
@@ -63,12 +71,8 @@ export function postData (data) {
   return validator(schemas.postData, data)
 }
 
-export function header (data) {
-  return validator(schemas.record, data)
-}
-
 export function query (data) {
-  return validator(schemas.record, data)
+  return validator(schemas.query, data)
 }
 
 export function request (data) {

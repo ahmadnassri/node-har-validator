@@ -25,8 +25,8 @@ export function validator (schema, data = {}, cb) {
   return valid
 }
 
-export function har (data, cb) {
-  return validator(schemas.har, data, cb)
+export function browser (data, cb) {
+  return validator(schemas.browser, data, cb)
 }
 
 export function cache (data, cb) {
@@ -49,12 +49,16 @@ export function creator (data, cb) {
   return validator(schemas.creator, data, cb)
 }
 
-export function browser (data, cb) {
-  return validator(schemas.browser, data, cb)
-}
-
 export function entry (data, cb) {
   return validator(schemas.entry, data, cb)
+}
+
+export function har (data, cb) {
+  return validator(schemas.har, data, cb)
+}
+
+export function header (data, cb) {
+  return validator(schemas.header, data, cb)
 }
 
 export function log (data, cb) {
@@ -74,11 +78,7 @@ export function postData (data, cb) {
 }
 
 export function query (data, cb) {
-  return validator(schemas.record, data, cb)
-}
-
-export function header (data, cb) {
-  return validator(schemas.record, data, cb)
+  return validator(schemas.query, data, cb)
 }
 
 export function request (data, cb) {
