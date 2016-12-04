@@ -12,7 +12,7 @@ const validator = {}
 
 // compile each validator once
 for (let name in schemas) {
-  let validate = ajv.compile(schemas[name])
+  let validate = ajv.getSchema(name + '.json')
 
   validator[name] = (data = {}, cb) => {
     // execute validation
