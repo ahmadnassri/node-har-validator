@@ -4,8 +4,8 @@ import HARError from './error'
 
 // validator config
 let ajv = new Ajv({
-  schemas,
-  allErrors: true
+  allErrors: true,
+  schemas: schemas
 })
 
 const validator = {}
