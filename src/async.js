@@ -11,8 +11,8 @@ let ajv = new Ajv({
 const validator = {}
 
 // compile each validator once
-for (let [name, schema] of Object.entries(schemas)) {
-  let validate = ajv.compile(schema)
+for (let name in schemas) {
+  let validate = ajv.compile(schemas[name])
 
   validator[name] = (data = {}, cb) => {
     // execute validation
