@@ -1,18 +1,21 @@
 import * as schemas from 'har-schema'
 import Ajv from 'ajv'
 import HARError from './error'
+var ajv
 
 export function validator (schema, data = {}, cb) {
   // default value
   let valid = false
 
   // validator config
-  let ajv = new Ajv({
+  ajv = ajv || new Ajv({
     allErrors: true,
     schemas: schemas
   })
 
-  let validate = ajv.compile(schema)
+  let validate = typeof schema === 'string'
+                  ? ajv.getSchema(schema)
+                  : ajv.compile(schema)
 
   // execute validation
   valid = validate(data)
@@ -26,73 +29,73 @@ export function validator (schema, data = {}, cb) {
 }
 
 export function afterRequest (data, cb) {
-  return validator(schemas.afterRequest, data, cb)
+  return validator('afterRequest.json', data, cb)
 }
 
 export function beforeRequest (data, cb) {
-  return validator(schemas.beforeRequest, data, cb)
+  return validator('beforeRequest.json', data, cb)
 }
 
 export function browser (data, cb) {
-  return validator(schemas.browser, data, cb)
+  return validator('browser.json', data, cb)
 }
 
 export function cache (data, cb) {
-  return validator(schemas.cache, data, cb)
+  return validator('cache.json', data, cb)
 }
 
 export function content (data, cb) {
-  return validator(schemas.content, data, cb)
+  return validator('content.json', data, cb)
 }
 
 export function cookie (data, cb) {
-  return validator(schemas.cookie, data, cb)
+  return validator('cookie.json', data, cb)
 }
 
 export function creator (data, cb) {
-  return validator(schemas.creator, data, cb)
+  return validator('creator.json', data, cb)
 }
 
 export function entry (data, cb) {
-  return validator(schemas.entry, data, cb)
+  return validator('entry.json', data, cb)
 }
 
 export function har (data, cb) {
-  return validator(schemas.har, data, cb)
+  return validator('har.json', data, cb)
 }
 
 export function header (data, cb) {
-  return validator(schemas.header, data, cb)
+  return validator('header.json', data, cb)
 }
 
 export function log (data, cb) {
-  return validator(schemas.log, data, cb)
+  return validator('log.json', data, cb)
 }
 
 export function page (data, cb) {
-  return validator(schemas.page, data, cb)
+  return validator('page.json', data, cb)
 }
 
 export function pageTimings (data, cb) {
-  return validator(schemas.pageTimings, data, cb)
+  return validator('pageTimings.json', data, cb)
 }
 
 export function postData (data, cb) {
-  return validator(schemas.postData, data, cb)
+  return validator('postData.json', data, cb)
 }
 
 export function query (data, cb) {
-  return validator(schemas.query, data, cb)
+  return validator('query.json', data, cb)
 }
 
 export function request (data, cb) {
-  return validator(schemas.request, data, cb)
+  return validator('request.json', data, cb)
 }
 
 export function response (data, cb) {
-  return validator(schemas.response, data, cb)
+  return validator('response.json', data, cb)
 }
 
 export function timings (data, cb) {
-  return validator(schemas.timings, data, cb)
+  return validator('timings.json', data, cb)
 }
