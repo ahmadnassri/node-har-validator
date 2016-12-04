@@ -8,90 +8,84 @@ let ajv = new Ajv({
   schemas: schemas
 })
 
-const validator = {}
-
-// compile each validator once
-for (let name in schemas) {
+export function validate (name, data = {}) {
   let validate = ajv.getSchema(name + '.json')
 
-  validator[name] = (data = {}, cb) => {
-    return new Promise((resolve, reject) => {
-      // execute validation
-      validate(data)
+  return new Promise((resolve, reject) => {
+    validate(data)
 
-      validate.errors ? reject(new HARError(validate.errors)) : resolve(data)
-    })
-  }
+    validate.errors ? reject(new HARError(validate.errors)) : resolve(data)
+  })
 }
 
 export function afterRequest (data) {
-  return validator.afterRequest(data)
+  return validate('afterRequest', data)
 }
 
 export function beforeRequest (data) {
-  return validator.beforeRequest(data)
+  return validate('beforeRequest', data)
 }
 
 export function browser (data) {
-  return validator.browser(data)
+  return validate('browser', data)
 }
 
 export function cache (data) {
-  return validator.cache(data)
+  return validate('cache', data)
 }
 
 export function content (data) {
-  return validator.content(data)
+  return validate('content', data)
 }
 
 export function cookie (data) {
-  return validator.cookie(data)
+  return validate('cookie', data)
 }
 
 export function creator (data) {
-  return validator.creator(data)
+  return validate('creator', data)
 }
 
 export function entry (data) {
-  return validator.entry(data)
+  return validate('entry', data)
 }
 
 export function har (data) {
-  return validator.har(data)
+  return validate('har', data)
 }
 
 export function header (data) {
-  return validator.header(data)
+  return validate('header', data)
 }
 
 export function log (data) {
-  return validator.log(data)
+  return validate('log', data)
 }
 
 export function page (data) {
-  return validator.page(data)
+  return validate('page', data)
 }
 
 export function pageTimings (data) {
-  return validator.pageTimings(data)
+  return validate('pageTimings', data)
 }
 
 export function postData (data) {
-  return validator.postData(data)
+  return validate('postData', data)
 }
 
 export function query (data) {
-  return validator.query(data)
+  return validate('query', data)
 }
 
 export function request (data) {
-  return validator.request(data)
+  return validate('request', data)
 }
 
 export function response (data) {
-  return validator.response(data)
+  return validate('response', data)
 }
 
 export function timings (data) {
-  return validator.timings(data)
+  return validate('timings', data)
 }

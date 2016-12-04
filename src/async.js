@@ -8,93 +8,87 @@ let ajv = new Ajv({
   schemas: schemas
 })
 
-const validator = {}
-
-// compile each validator once
-for (let name in schemas) {
+export function validate (name, data = {}, next) {
   let validate = ajv.getSchema(name + '.json')
 
-  validator[name] = (data = {}, cb) => {
-    // execute validation
-    let valid = validate(data)
+  let valid = validate(data)
 
-    // callback?
-    if (typeof cb === 'function') {
-      return cb(validate.errors ? new HARError(validate.errors) : null, valid)
-    }
-
-    return valid
+  // callback?
+  if (typeof next === 'function') {
+    return next(validate.errors ? new HARError(validate.errors) : null, valid)
   }
+
+  return valid
 }
 
-export function afterRequest (data, cb) {
-  return validator.afterRequest(data, cb)
+export function afterRequest (data, next) {
+  return validate('afterRequest', data, next)
 }
 
-export function beforeRequest (data, cb) {
-  return validator.beforeRequest(data, cb)
+export function beforeRequest (data, next) {
+  return validate('beforeRequest', data, next)
 }
 
-export function browser (data, cb) {
-  return validator.browser(data, cb)
+export function browser (data, next) {
+  return validate('browser', data, next)
 }
 
-export function cache (data, cb) {
-  return validator.cache(data, cb)
+export function cache (data, next) {
+  return validate('cache', data, next)
 }
 
-export function content (data, cb) {
-  return validator.content(data, cb)
+export function content (data, next) {
+  return validate('content', data, next)
 }
 
-export function cookie (data, cb) {
-  return validator.cookie(data, cb)
+export function cookie (data, next) {
+  return validate('cookie', data, next)
 }
 
-export function creator (data, cb) {
-  return validator.creator(data, cb)
+export function creator (data, next) {
+  return validate('creator', data, next)
 }
 
-export function entry (data, cb) {
-  return validator.entry(data, cb)
+export function entry (data, next) {
+  return validate('entry', data, next)
 }
 
-export function har (data, cb) {
-  return validator.har(data, cb)
+export function har (data, next) {
+  return validate('har', data, next)
 }
 
-export function header (data, cb) {
-  return validator.header(data, cb)
+export function header (data, next) {
+  return validate('header', data, next)
 }
 
-export function log (data, cb) {
-  return validator.log(data, cb)
+export function log (data, next) {
+  return validate('log', data, next)
 }
 
-export function page (data, cb) {
-  return validator.page(data, cb)
+export function page (data, next) {
+  return validate('page', data, next)
 }
 
-export function pageTimings (data, cb) {
-  return validator.pageTimings(data, cb)
+export function pageTimings (data, next) {
+  return validate('pageTimings', data, next)
 }
 
-export function postData (data, cb) {
-  return validator.postData(data, cb)
+export function postData (data, next) {
+  return validate('postData', data, next)
 }
 
-export function query (data, cb) {
-  return validator.query(data, cb)
+export function query (data, next) {
+  return validate('query', data, next)
 }
 
-export function request (data, cb) {
-  return validator.request(data, cb)
+export function request (data, next) {
+  return validate('request', data, next)
 }
 
-export function response (data, cb) {
-  return validator.response(data, cb)
+export function response (data, next) {
+  return validate('response', data, next)
 }
 
-export function timings (data, cb) {
-  return validator.timings(data, cb)
+export function timings (data, next) {
+  return validate('timings', data, next)
 }
