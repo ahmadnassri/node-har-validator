@@ -67,6 +67,6 @@
   },
   "dependencies": {
     "ajv": "^4.9.0",
-    "har-schema": "^0.1.0"
+    "har-schema": "^0.2.0"
   }
 }
