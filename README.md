@@ -38,25 +38,7 @@ var validate = require('har-validator')
 
 ## CLI Usage
 
-```
-
-  Usage: har-validator [options] <files ...>
-
-  Options:
-
-    -h, --help           output usage information
-    -V, --version        output the version number
-    -s, --schema [name]  validate schema name (log, request, response, etc ...)
-
-```
-
-###### Example
-
-```shell
-$ har-validator har.json
-
-$ har-validator --schema=request request.json
-```
+Please refer to [`har-cli`](https://github.com/ahmadnassri/har-cli) for more info.
 
 ## API
 
