@@ -62,7 +62,7 @@
     "cz-conventional-changelog": "^1.2.0",
     "echint": "^2.1.0",
     "semantic-release": "^6.3.2",
-    "snazzy": "^5.0.0",
+    "snazzy": "^6.0.0",
     "tap": "^9.0.0"
   },
   "dependencies": {
