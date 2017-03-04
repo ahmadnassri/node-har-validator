@@ -2,13 +2,15 @@ import * as schemas from 'har-schema'
 import Ajv from 'ajv'
 import HARError from './error'
 
-// validator config
-let ajv = new Ajv({
-  allErrors: true,
-  schemas: schemas
-})
+let ajv
 
 export function validate (name, data = {}) {
+  // validator config
+  ajv = ajv || new Ajv({
+    allErrors: true,
+    schemas: schemas
+  })
+
   let validate = ajv.getSchema(name + '.json')
 
   return new Promise((resolve, reject) => {
