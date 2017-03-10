@@ -42,7 +42,7 @@ Please refer to [`har-cli`](https://github.com/ahmadnassri/har-cli) for more inf
 
 ## API
 
-**Note**: as of [`v2.0.0`](https://github.com/ahmadnassri/har-validator/releases/tag/v2.0.0) this module defaults to Promise based API. *For backward comptability with `v1.x` an [async/callback API](docs/async.md) is also provided*
+**Note**: as of [`v2.0.0`](https://github.com/ahmadnassri/har-validator/releases/tag/v2.0.0) this module defaults to Promise based API. *For backward compatibility with `v1.x` an [async/callback API](docs/async.md) is also provided*
 
 - [async API](docs/async.md)
 - [callback API](docs/async.md)
