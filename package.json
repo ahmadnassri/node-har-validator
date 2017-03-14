@@ -40,7 +40,6 @@
     "tap": "^10.3.0"
   },
   "dependencies": {
-    "@ahmadnassri/error": "^1.1.0",
     "ajv": "^4.9.1",
     "har-schema": "^1.0.5"
   }
