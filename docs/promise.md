@@ -3,8 +3,8 @@
 
 ```js
 import * as validate from 'har-validator'
-import * as validate from 'har-validator/lib/{node-version}/promise'
-import { request, response } from 'har-validator/lib/{node-version}/promise'
+import * as validate from 'har-validator/lib/promise'
+import { request, response } from 'har-validator/lib/promise'
 ```
 
 ### validate.afterRequest(data)

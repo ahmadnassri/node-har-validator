@@ -1,8 +1,8 @@
 ## async API
 
 ```js
-import * as validate from 'har-validator/lib/{node-version}/async'
-import { request, response } from 'har-validator/lib/{node-version}/async'
+import * as validate from 'har-validator/lib/async'
+import { request, response } from 'har-validator/lib/async'
 ```
 
 ### validate.afterRequest(data)

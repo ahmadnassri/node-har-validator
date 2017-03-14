@@ -1,4 +1,4 @@
-# HAR Validator [![version][npm-version]][npm-url] [![License][npm-license]][license-url]
+# HAR Validator [![version][npm-version]][npm-url] [![License][license-image]][license-url]
 
 > Extremely fast HTTP Archive ([HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md)) validator using JSON Schema.
 
@@ -13,27 +13,6 @@
 
 ```bash
 npm install --only=production --save har-validator
-```
-
-## Usage
-
-I recommend using an optimized build matching your Node.js environment version, otherwise, the standard `require` would work just fine with any version of Node `>= v4.0` .
-
-```js
-/*
- * Node 7
- */
-const validate = require('har-validator/lib/node7')
-
-/*
- * Node 6
- */
-const validate = require('har-validator/lib/node6')
-
-/*
- * Node 4 (Default)
- */
-var validate = require('har-validator')
 ```
 
 ## CLI Usage
@@ -55,12 +34,12 @@ Please refer to [`har-cli`](https://github.com/ahmadnassri/har-cli) for more inf
 > Twitter: [@ahmadnassri](https://twitter.com/ahmadnassri)
 
 [license-url]: http://choosealicense.com/licenses/isc/
+[license-image]: https://img.shields.io/github/license/ahmadnassri/har-validator.svg?style=flat-square
 
 [travis-url]: https://travis-ci.org/ahmadnassri/har-validator
 [travis-image]: https://img.shields.io/travis/ahmadnassri/har-validator.svg?style=flat-square
 
 [npm-url]: https://www.npmjs.com/package/har-validator
-[npm-license]: https://img.shields.io/npm/l/har-validator.svg?style=flat-square
 [npm-version]: https://img.shields.io/npm/v/har-validator.svg?style=flat-square
 [npm-downloads]: https://img.shields.io/npm/dm/har-validator.svg?style=flat-square
 

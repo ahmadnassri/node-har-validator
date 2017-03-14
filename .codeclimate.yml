@@ -13,5 +13,5 @@ engines:
 
 ratings:
   paths:
-    - src/**
+    - lib/**
     - test/**

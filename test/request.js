@@ -1,8 +1,10 @@
-import HARError from '../src/error'
-import invalid from './fixtures/request/invalid'
-import valid from './fixtures/request/valid'
-import { request } from '../src/promise'
-import { test } from 'tap'
+'use strict'
+
+const HARError = require('../lib/error')
+const invalid = require('./fixtures/request/invalid')
+const tap = require('tap')
+const valid = require('./fixtures/request/valid')
+const validate = require('../lib/promise')
 
 const errors = {
   object: new HARError([{ dataPath: '', message: "should have required property 'method'" }]),
@@ -13,16 +15,16 @@ const errors = {
   malformed: new HARError([{ dataPath: '.headers[0]', message: "should have required property 'name'" }])
 }
 
-test('request', (assert) => {
+tap.test('request', assert => {
   assert.plan(7)
 
   return Promise.all([
-    request({}).catch((err) => assert.match(err, errors.object, 'should fail with empty object')),
-    request([]).catch((err) => assert.match(err, errors.array, 'should fail with empty array')),
-    request(undefined).catch((err) => assert.match(err, errors.undef, 'should fail with undefined')),
-    request(invalid.url).catch((err) => assert.match(err, errors.url, 'should fail on bad "url"')),
-    request(invalid.headers).catch((err) => assert.match(err, errors.headers, 'should fail on bad "headers"')),
-    request(invalid.malformed).catch((err) => assert.match(err, errors.malformed, 'should fail on malformed "headers"')),
-    request(valid).then((out) => assert.equal(out, valid, 'should not fail with full example'))
+    validate.request({}).catch(err => assert.match(err, errors.object, 'should fail with empty object')),
+    validate.request([]).catch(err => assert.match(err, errors.array, 'should fail with empty array')),
+    validate.request(undefined).catch(err => assert.match(err, errors.undef, 'should fail with undefined')),
+    validate.request(invalid.url).catch(err => assert.match(err, errors.url, 'should fail on bad "url"')),
+    validate.request(invalid.headers).catch(err => assert.match(err, errors.headers, 'should fail on bad "headers"')),
+    validate.request(invalid.malformed).catch(err => assert.match(err, errors.malformed, 'should fail on malformed "headers"')),
+    validate.request(valid).then(out => assert.equal(out, valid, 'should not fail with full example'))
   ])
 })
