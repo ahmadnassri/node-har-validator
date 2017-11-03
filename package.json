@@ -36,11 +36,11 @@
   },
   "devDependencies": {
     "echint": "^4.0.1",
-    "standard": "^10.0.2",
-    "tap": "^10.3.2"
+    "standard": "^10.0.3",
+    "tap": "^10.7.2"
   },
   "dependencies": {
-    "ajv": "^5.1.0",
+    "ajv": "^5.3.0",
     "har-schema": "^2.0.0"
   }
 }
