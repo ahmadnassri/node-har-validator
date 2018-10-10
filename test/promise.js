@@ -7,7 +7,7 @@ const tap = require('tap')
 const validate = require('../lib/promise')
 
 tap.test('promises', assert => {
-  let keys = Object.keys(schemas).filter((key) => key !== 'default')
+  const keys = Object.keys(schemas).filter((key) => key !== 'default')
 
   assert.plan((keys.length * 2) + 2)
 
