@@ -8,7 +8,7 @@ const valid = require('./fixtures/har/valid')
 const validate = require('../lib/async')
 
 tap.test('async', assert => {
-  let keys = Object.keys(schemas).filter(key => key !== 'default')
+  const keys = Object.keys(schemas).filter(key => key !== 'default')
 
   assert.plan(keys.length)
 
@@ -20,7 +20,7 @@ tap.test('async', assert => {
 tap.test('failure', assert => {
   assert.plan(4)
 
-  let error = new HARError([{ dataPath: '.log.version', message: 'should be string' }])
+  const error = new HARError([{ dataPath: '.log.version', message: 'should be string' }])
 
   assert.notOk(validate.har({}), 'should fail')
 
