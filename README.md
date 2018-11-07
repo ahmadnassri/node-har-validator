@@ -16,7 +16,7 @@ Please refer to [`har-cli`](https://github.com/ahmadnassri/har-cli) for more inf
 
 ## API
 
-**Note**: as of [`v2.0.0`](https://github.com/ahmadnassri/har-validator/releases/tag/v2.0.0) this module defaults to Promise based API. _For backward compatibility with `v1.x` an [async/callback API](docs/async.md) is also provided_
+**Note**: as of [`v2.0.0`](https://github.com/ahmadnassri/node-har-validator/releases/tag/v2.0.0) this module defaults to Promise based API. _For backward compatibility with `v1.x` an [async/callback API](docs/async.md) is also provided_
 
 - [async API](docs/async.md)
 - [callback API](docs/async.md)
@@ -30,7 +30,7 @@ Please refer to [`har-cli`](https://github.com/ahmadnassri/har-cli) for more inf
 [license-url]: LICENSE
 [license-image]: https://img.shields.io/github/license/ahmadnassri/node-har-validator.svg?style=for-the-badge&logo=circleci
 
-[circle-url]: https://circleci.com/gh/ahmadnassri/workflows/har-validator
+[circle-url]: https://circleci.com/gh/ahmadnassri/workflows/node-har-validator
 [circle-image]: https://img.shields.io/circleci/project/github/ahmadnassri/node-har-validator/master.svg?style=for-the-badge&logo=circleci
 
 [npm-url]: https://www.npmjs.com/package/har-validator
