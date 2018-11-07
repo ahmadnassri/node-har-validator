@@ -1,3 +1,4 @@
+<!-- lint disable no-shortcut-reference-link -->
 ## Callback API
 
 ```js
@@ -7,7 +8,7 @@ import { request, response } from 'har-validator/lib/async'
 
 ### validate.afterRequest(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -22,7 +23,7 @@ validate.afterRequest(data, (err, valid) => {
 
 ### validate.beforeRequest(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a ["beforeRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -37,7 +38,7 @@ validate.beforeRequest(data, (err, valid) => {
 
 ### validate.browser(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [browser](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#browser) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -52,7 +53,7 @@ validate.browser(data, (err, valid) => {
 
 ### validate.cache(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [cache](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -67,7 +68,7 @@ validate.cache(data, (err, valid) => {
 
 ### validate.content(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [content](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#content) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -82,7 +83,7 @@ validate.content(data, (err, valid) => {
 
 ### validate.cookie(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [cookie](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cookies) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -97,7 +98,7 @@ validate.cookie(data, (err, valid) => {
 
 ### validate.creator(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [creator](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#creator) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -112,7 +113,7 @@ validate.creator(data, (err, valid) => {
 
 ### validate.entry(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   an [entry](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#entries) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -127,7 +128,7 @@ validate.entry(data, (err, valid) => {
 
 ### validate.har(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -142,7 +143,7 @@ validate.har(data, (err, valid) => {
 
 ### validate.header(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [header](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#headers) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -157,7 +158,7 @@ validate.header(data, (err, valid) => {
 
 ### validate.log(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [log](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#log) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -172,7 +173,7 @@ validate.log(data, (err, valid) => {
 
 ### validate.page(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [page](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#page) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -187,7 +188,7 @@ validate.page(data, (err, valid) => {
 
 ### validate.pageTimings(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [pageTimings](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#pageTimings) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -202,7 +203,7 @@ validate.pageTimings(data, (err, valid) => {
 
 ### validate.postData(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [postData](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#postdata') object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -217,7 +218,7 @@ validate.postData(data, (err, valid) => {
 
 ### validate.query(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [queryString](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#querystring) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -232,7 +233,7 @@ validate.query(data, (err, valid) => {
 
 ### validate.request(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [request](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#request) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -247,7 +248,7 @@ validate.request(data, (err, valid) => {
 
 ### validate.response(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [response](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#response) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`
@@ -262,7 +263,7 @@ validate.cacheEntry(data, (err, valid) => {
 
 ### validate.timings(data [, callback])
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [timings](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#timings) object
 - **callback**: `Function`
   callback function with signature of `(err, valid)`

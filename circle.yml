@@ -1,0 +1,99 @@
+version: 2.1
+
+executors:
+  builder:
+    docker:
+      - image: ahmadnassri/build-essential
+
+  node-6:
+    docker:
+      - image: node:6-slim
+
+  node-8:
+    docker:
+      - image: node:8-slim
+
+  node-10:
+    docker:
+      - image: node:10-slim
+
+commands:
+  persist:
+    steps:
+      - persist_to_workspace:
+          root: .
+          paths: .
+
+  attach:
+    steps:
+      - attach_workspace:
+          at: .
+
+  install:
+    steps:
+      - run:
+          name: Install dependencies
+          command: npm ci
+
+jobs:
+  build:
+    executor: builder
+    steps:
+      - checkout
+      - install
+      - persist
+
+  lint:
+    executor: builder
+    steps:
+      - attach
+      - run: npm run lint
+
+  test-node-6:
+    executor: node-6
+    steps:
+      - attach
+      - run: npm run test
+
+  test-node-8:
+    executor: node-8
+    steps:
+      - attach
+      - run: npm run test
+
+  test-node-10:
+    executor: node-10
+    steps:
+      - attach
+      - run: npm run test
+
+  release:
+    executor: builder
+    steps:
+      - attach
+      - run: npx semantic-release
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build
+
+      - lint:
+          requires: [ build ]
+
+      - test-node-6:
+          requires: [ build ]
+
+      - test-node-8:
+          requires: [ build ]
+
+      - test-node-10:
+          requires: [ build ]
+
+      - release:
+          context: semantic-release
+          requires: [ build, lint, test-node-6, test-node-8, test-node-10 ]
+          filters:
+            branches:
+              only: master

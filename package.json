@@ -3,12 +3,12 @@
   "name": "har-validator",
   "description": "Extremely fast HTTP Archive (HAR) validator using JSON Schema",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
-  "homepage": "https://github.com/ahmadnassri/har-validator",
+  "homepage": "https://github.com/ahmadnassri/node-har-validator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmadnassri/har-validator.git"
+    "url": "https://github.com/ahmadnassri/node-har-validator.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/promise.js",
   "keywords": [
     "har",
@@ -20,27 +20,28 @@
     "validator"
   ],
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "files": [
     "lib"
   ],
   "bugs": {
-    "url": "https://github.com/ahmadnassri/har-validator/issues"
+    "url": "https://github.com/ahmadnassri/node-har-validator/issues"
   },
   "scripts": {
-    "lint": "standard && echint",
-    "pretest": "npm run lint",
-    "test": "tap test",
-    "coverage": "tap test --reporter silent --coverage"
+    "lint:deps": "npx updated",
+    "lint:ec": "npx editorconfig-checker .",
+    "lint:js": "npx eslint .",
+    "lint:md": "npx remark --quiet --frail .",
+    "lint": "npx run-p lint:*",
+    "open:coverage": "opener coverage/lcov-report/index.html",
+    "test": "tap test --coverage-report=lcov --no-browser"
   },
   "devDependencies": {
-    "echint": "^4.0.1",
-    "standard": "^10.0.3",
-    "tap": "^12.0.0"
+    "tap": "^12.0.1"
   },
   "dependencies": {
-    "ajv": "^6.5.2",
+    "ajv": "^6.5.5",
     "har-schema": "^2.0.0"
   }
 }

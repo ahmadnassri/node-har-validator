@@ -1,6 +1,5 @@
 ## Promise API
 
-
 ```js
 import * as validate from 'har-validator'
 import * as validate from 'har-validator/lib/promise'
@@ -11,7 +10,7 @@ import { request, response } from 'har-validator/lib/promise'
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [afterRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 
 ```js
@@ -24,7 +23,7 @@ validate.afterRequest(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a ["beforeRequest"](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) objects
 
 ```js
@@ -37,7 +36,7 @@ validate.beforeRequest(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [browser](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#browser) object
 
 ```js
@@ -50,7 +49,7 @@ validate.browser(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [cache](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cache) object
 
 ```js
@@ -63,7 +62,7 @@ validate.cache(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [content](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#content) object
 
 ```js
@@ -76,7 +75,7 @@ validate.content(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [cookie](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#cookies) object
 
 ```js
@@ -89,7 +88,7 @@ validate.cookie(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [creator](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#creator) object
 
 ```js
@@ -102,7 +101,7 @@ validate.creator(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   an [entry](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#entries) object
 
 ```js
@@ -115,7 +114,7 @@ validate.entry(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a full [HAR](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md) object
 
 ```js
@@ -128,7 +127,7 @@ validate.har(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [header](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#headers) object
 
 ```js
@@ -141,7 +140,7 @@ validate.header(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [log](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#log) object
 
 ```js
@@ -154,7 +153,7 @@ validate.log(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [page](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#pages) object
 
 ```js
@@ -167,7 +166,7 @@ validate.page(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [pageTimings](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#pageTimings) object
 
 ```js
@@ -180,7 +179,7 @@ validate.pageTimings(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [postData](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#postData) object
 
 ```js
@@ -193,7 +192,7 @@ validate.postData(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [queryString](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#querystring) object
 
 ```js
@@ -206,7 +205,7 @@ validate.query(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [request](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#request) object
 
 ```js
@@ -219,7 +218,7 @@ validate.request(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [response](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#response) object
 
 ```js
@@ -232,7 +231,7 @@ validate.cacheEntry(data)
 
 > Returns a promise that resolves to the valid object.
 
-- **data**: `Object` *(Required)*
+- **data**: `Object` _(Required)_
   a [timings](https://github.com/ahmadnassri/har-spec/blob/master/versions/1.2.md#timings) object
 
 ```js
