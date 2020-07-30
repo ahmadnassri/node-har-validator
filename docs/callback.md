@@ -1,5 +1,4 @@
-<!-- lint disable no-shortcut-reference-link -->
-## Callback API
+# Callback API
 
 ```js
 import * as validate from 'har-validator/lib/async'

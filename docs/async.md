@@ -1,4 +1,4 @@
-## async API
+# async API
 
 ```js
 import * as validate from 'har-validator/lib/async'

@@ -1,4 +1,4 @@
-## Promise API
+# Promise API
 
 ```js
 import * as validate from 'har-validator'
