@@ -1,0 +1,14 @@
+name: super-linter
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  super-linter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker://github/super-linter:v3

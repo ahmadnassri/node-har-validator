@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  lint:
+    image: github/super-linter:v3
+    volumes:
+      - ./:/tmp/lint
+    environment:
+      - RUN_LOCAL=true
+
