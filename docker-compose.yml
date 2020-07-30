@@ -1,10 +1,84 @@
 version: '3.8'
 
+x-node: &node
+  tty: true
+  volumes:
+    - type: bind
+      source: .
+      target: /app
+  working_dir: /app
+  command: npm run test
+
 services:
   lint:
     image: github/super-linter:v3
     volumes:
       - ./:/tmp/lint
     environment:
-      - RUN_LOCAL=true
+      RUN_LOCAL: 'true'
+      VALIDATE_ANSIBLE: 'false'
+      VALIDATE_ARM: 'false'
+      VALIDATE_BASH: 'true'
+      VALIDATE_CLOJURE: 'false'
+      VALIDATE_CLOUDFORMATION: 'false'
+      VALIDATE_COFFEE: 'false'
+      VALIDATE_CSS: 'true'
+      VALIDATE_DART: 'false'
+      VALIDATE_DOCKER: 'true'
+      VALIDATE_EDITORCONFIG: 'true'
+      VALIDATE_ENV: 'false'
+      VALIDATE_GO: 'false'
+      VALIDATE_GROOVY: 'false'
+      VALIDATE_HTML: 'true'
+      VALIDATE_JAVASCRIPT_ES: 'false'
+      VALIDATE_JAVASCRIPT_STANDARD: 'true'
+      VALIDATE_JSON: 'true'
+      VALIDATE_JSX: 'true'
+      VALIDATE_KOTLIN: 'false'
+      VALIDATE_LUA: 'false'
+      VALIDATE_MD: 'true'
+      VALIDATE_OPENAPI: 'true'
+      VALIDATE_PERL: 'false'
+      VALIDATE_PHP: 'false'
+      VALIDATE_PHP_PHPSTAN: 'false'
+      VALIDATE_PROTOBUF: 'false'
+      VALIDATE_PYTHON: 'false'
+      VALIDATE_PYTHON_PYLINT: 'false'
+      VALIDATE_PYTHON_FLAKE8: 'false'
+      VALIDATE_POWERSHELL: 'false'
+      VALIDATE_RAKU: 'false'
+      VALIDATE_RUBY: 'false'
+      VALIDATE_STATES: 'false'
+      VALIDATE_TERRAFORM: 'true'
+      VALIDATE_TERRAFORM_TERRASCAN: 'true'
+      VALIDATE_TSX: 'false'
+      VALIDATE_TYPESCRIPT_ES: 'false'
+      VALIDATE_TYPESCRIPT_STANDARD: 'false'
+      VALIDATE_XML: 'false'
+      VALIDATE_YAML: 'true'
 
+  test:
+    <<: *node
+    image: node:alpine
+    # command: npm run test:coverage
+    depends_on:
+      - node10
+      - node12
+      - node13
+      - node14
+
+  node10:
+    <<: *node
+    image: node:10-alpine
+
+  node12:
+    <<: *node
+    image: node:12-alpine
+
+  node13:
+    <<: *node
+    image: node:13-alpine
+
+  node14:
+    <<: *node
+    image: node:14-alpine
