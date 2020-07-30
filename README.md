@@ -9,8 +9,8 @@
 [license-url]: LICENSE
 [license-img]: https://badgen.net/github/license/ahmadnassri/node-har-validator
 
-[npm-url]: https://www.npmjs.com/package/oas-fastify
-[npm-img]: https://badgen.net/npm/v/oas-fastify
+[npm-url]: https://www.npmjs.com/package/har-validator
+[npm-img]: https://badgen.net/npm/v/har-validator
 
 [super-linter-url]: https://github.com/ahmadnassri/node-har-validator/actions?query=workflow%3Asuper-linter
 [super-linter-img]: https://github.com/ahmadnassri/node-har-validator/workflows/super-linter/badge.svg
