@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.2
+      - uses: actions/setup-node@v2.1.4
 
       # run checks
       - run: npm audit --audit-level=moderate
@@ -35,7 +35,7 @@ jobs:
           path: ~/.npm
           key: client-${{ hashFiles('**/package-lock.json') }}
 
-      - uses: actions/setup-node@v2.1.2
+      - uses: actions/setup-node@v2.1.4
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -50,7 +50,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.2
+      - uses: actions/setup-node@v2.1.4
 
       # release
       - run: npx semantic-release
