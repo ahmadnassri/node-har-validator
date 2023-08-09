@@ -1,3 +1,7 @@
+# ----------------------------------------------- #
+# Note: this file originates in template-template #
+# ----------------------------------------------- #
+
 # Heading levels should only increment by one level at a time
 MD001: false
 
@@ -36,7 +40,7 @@ MD012:
 
 # Line length
 MD013:
-  line_length: 180
+  line_length: 360
   strict: true
   stern: true
 
@@ -59,7 +63,6 @@ MD021: true
 MD022:
   lines_above: 1
   lines_below: 1
-
 
 # Headings must start at the beginning of the line
 MD023: true
@@ -101,15 +104,14 @@ MD032: true
 
 # inline HTML
 MD033:
-  allowed_elements: []
+  allowed_elements: [details, summary]
 
 # Bare URL used
 MD034: true
 
 # Horizontal rule style
 MD035:
-  style: "---"
-
+  style: "----"
 
 # Emphasis used instead of a heading
 MD036:
@@ -128,7 +130,7 @@ MD039: true
 MD040: true
 
 # First line in file should be a top level heading
-MD041: true
+MD041: false
 
 # No empty links
 MD042: true
