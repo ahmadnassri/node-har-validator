@@ -34,7 +34,7 @@
     "test:coverage": "tap test --coverage-report=lcov --no-browser"
   },
   "devDependencies": {
-    "tap": "^18.5.1"
+    "tap": "^21.6.2"
   },
   "dependencies": {
     "ajv": "^6.12.3",
